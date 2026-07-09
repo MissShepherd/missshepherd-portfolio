@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-interface PlayerStat {
+interface HomeStat {
   label: string;
   value: string;
 }
 
-interface HomeHighlight {
-  number: string;
+interface CreativeInfluence {
   title: string;
   text: string;
+  icon: string;
 }
 
-interface FeaturedQuest {
+interface FeaturedProject {
+  label: string;
   title: string;
-  type: string;
-  description: string;
-  tags: string[];
+  objective: string;
+  tools: string[];
+  reward: string;
   route: string;
 }
 
@@ -27,65 +28,73 @@ interface FeaturedQuest {
   styleUrl: './home.scss'
 })
 export class Home {
-  playerStats: PlayerStat[] = [
+  stats: HomeStat[] = [
     {
-      label: 'Class',
+      label: 'Current Build',
       value: 'Junior Software Developer'
     },
     {
-      label: 'Main Stack',
+      label: 'Main Tools',
       value: 'Angular, TypeScript, SCSS'
     },
     {
-      label: 'Side Quests',
-      value: 'Art, gaming, UI ideas'
+      label: 'Creative Buffs',
+      value: 'Drawing, gaming, music, UI design'
     }
   ];
 
-  highlights: HomeHighlight[] = [
+  influences: CreativeInfluence[] = [
     {
-      number: '01',
-      title: 'a junior software developer',
-      text:
-        'I am building practical experience in web technologies and software development, with a focus on frontend work, structured interfaces, and clean user experiences.'
+      icon: '♪',
+      title: 'Music',
+      text: 'Rhythm, mood, and bold visual energy influence how I think about layout and flow.'
     },
     {
-      number: '02',
-      title: 'creative and visually minded',
-      text:
-        'As an artist, I enjoy bringing creativity into my work and thinking about both function and appearance. I like interfaces that are useful, but also have personality.'
+      icon: '✦',
+      title: 'Drawing',
+      text: 'Sketching helps me explore shapes, characters, composition, and visual storytelling.'
     },
     {
-      number: '03',
-      title: 'interested in games and interactive experiences',
-      text:
-        'My interest in games has strengthened my appreciation for digital design, usability, storytelling, and engaging user experiences.'
+      icon: '▶',
+      title: 'Gaming',
+      text: 'Games made me appreciate readable systems, feedback, navigation, and interactive design.'
+    },
+    {
+      icon: '★',
+      title: 'Roleplay & Animation',
+      text: 'Characters, stories, cartoons, and anime inspire playful details and expressive interfaces.'
     }
   ];
 
-  featuredQuests: FeaturedQuest[] = [
+  featuredProjects: FeaturedProject[] = [
     {
+      label: 'Main Quest',
       title: 'Bildungsplan App',
-      type: 'Main Quest',
-      description:
-        'An Angular application for searching, filtering, and exploring EFZ education plan data through a clear and user-friendly interface.',
-      tags: ['Angular', 'TypeScript', 'SCSS', 'REST API'],
+      objective:
+        'Build a searchable Angular frontend for EFZ education plan data.',
+      tools: ['Angular', 'TypeScript', 'SCSS', 'REST API'],
+      reward:
+        'Practical frontend experience, clearer data structure, filters, search, and detail views.',
       route: '/projects'
     },
     {
+      label: 'Side Quest',
       title: 'Field Guide to Mounts & Critters',
-      type: 'Creative Prototype',
-      description:
-        'A fantasy-themed Figma prototype for a collectible-tracking companion app inspired by games, collections, and interactive user flows.',
-      tags: ['Figma', 'UI Design', 'Prototype'],
+      objective:
+        'Design a fantasy-themed collectible tracker prototype inspired by game collections.',
+      tools: ['Figma', 'UI Design', 'Prototype'],
+      reward:
+        'Stronger user flow, visual design practice, and a polished themed interface.',
       route: '/creative'
     },
     {
+      label: 'Archive Quest',
       title: 'Retro Gaming Website',
-      type: 'Side Quest',
-      description:
-        'A retro-inspired web project created for a Web Engineering class, built around early 2000s web design and playful visual style.',
-      tags: ['HTML', 'CSS', 'Svelte', 'Vercel'],
+      objective:
+        'Create a retro-inspired web project based on early 2000s gaming website aesthetics.',
+      tools: ['HTML', 'CSS', 'Svelte', 'Vercel'],
+      reward:
+        'Creative web design practice with nostalgic visuals and deployment experience.',
       route: '/projects'
     }
   ];

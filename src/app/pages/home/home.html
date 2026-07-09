@@ -1,115 +1,186 @@
-<section class="hero-section">
-  <div class="hero-content">
-    <p class="eyebrow">Angular Developer Portfolio</p>
+<section class="home-page">
+  <div class="background-noise" aria-hidden="true"></div>
+  <div class="scribble scribble-one" aria-hidden="true">✦</div>
+  <div class="scribble scribble-two" aria-hidden="true">404 boring not found</div>
+  <div class="scribble scribble-three" aria-hidden="true">draw // code // play</div>
 
-    <h1>
-      Junior Frontend Developer with a creative inventory.
-    </h1>
+  <section class="hero-section">
+    <div class="hero-copy">
+      <div class="sticker-row" aria-hidden="true">
+        <span>Angular</span>
+        <span>Figma</span>
+        <span>Side Quests</span>
+        <span>No boring UI</span>
+      </div>
 
-    <p class="hero-text">
-      I build structured, user-friendly web applications with Angular,
-      TypeScript, and a creative eye for interfaces that feel clear,
-      practical, and a little playful.
-    </p>
+      <p class="eyebrow">Portfolio // Frontend Developer</p>
 
-    <div class="hero-actions">
-      <a class="primary-button" routerLink="/projects">
-        View Quests
-      </a>
+      <h1>
+        Creative frontend developer with a sketchbook, a playlist, and too many side quests.
+      </h1>
 
-      <a class="secondary-button" routerLink="/creative">
-        Open Sketchbook
-      </a>
+      <p class="hero-text">
+        I work with Angular, TypeScript, SCSS, and Figma to build structured
+        interfaces with personality. Music, gaming, drawing, roleplay, cartoons,
+        and anime shape how I think about design: clear, expressive, and fun to use.
+      </p>
+
+      <div class="hero-actions">
+        <a routerLink="/projects" class="button button-primary">
+          View My Quests
+        </a>
+
+        <a routerLink="/creative" class="button button-secondary">
+          Open Sketchbook
+        </a>
+      </div>
     </div>
+
+    <aside class="mixtape-card" aria-label="Developer profile">
+      <div class="tape tape-left"></div>
+      <div class="tape tape-right"></div>
+
+      <div class="mixtape-top">
+        <span>Now Playing</span>
+        <span>Vol. 01</span>
+      </div>
+
+      <h2>Code, Coffee & Controlled Chaos</h2>
+
+      <div class="cassette-window">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="stat-list">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-item">
+            <span>{{ stat.label }}</span>
+            <strong>{{ stat.value }}</strong>
+          </div>
+        }
+      </div>
+    </aside>
+  </section>
+
+  <div class="marquee-strip" aria-hidden="true">
+    <span>CODE</span>
+    <span>DRAW</span>
+    <span>GAME</span>
+    <span>DESIGN</span>
+    <span>ROLEPLAY</span>
+    <span>DEBUG</span>
+    <span>REPEAT</span>
   </div>
 
-  <aside class="player-card" aria-label="Developer profile card">
-    <div class="player-card-header">
-      <span class="status-dot"></span>
-      <span>Player Profile</span>
+  <section class="intro-section">
+    <div class="section-heading torn-heading">
+      <p class="eyebrow">About the build</p>
+      <h2>Professional structure. Gremlin energy in the details.</h2>
     </div>
 
-    <h2>Lilli / MissShepherd</h2>
+    <div class="intro-grid">
+      <article class="intro-card main-intro">
+        <span class="number">01</span>
+        <h3>I build structured web interfaces.</h3>
+        <p>
+          I enjoy turning complex information into clear, usable layouts.
+          My focus is frontend development with Angular, TypeScript, SCSS,
+          and practical UI structure.
+        </p>
+      </article>
 
-    <div class="stat-list">
-      @for (stat of playerStats; track stat.label) {
-        <div class="stat-item">
-          <span>{{ stat.label }}</span>
-          <strong>{{ stat.value }}</strong>
-        </div>
+      <article class="intro-card">
+        <span class="number">02</span>
+        <h3>I bring creativity into technical work.</h3>
+        <p>
+          Drawing, music, character design, and visual storytelling influence
+          how I approach interfaces. Function matters, but personality does too.
+        </p>
+      </article>
+
+      <article class="intro-card">
+        <span class="number">03</span>
+        <h3>I like experiences that feel interactive.</h3>
+        <p>
+          Games, roleplay, cartoons, and anime made me appreciate readable systems,
+          strong visual worlds, and user journeys that feel alive instead of flat.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="influence-section">
+    <div class="section-heading">
+      <p class="eyebrow">Creative inventory</p>
+      <h2>Stuff that sneaks into my design brain.</h2>
+    </div>
+
+    <div class="influence-grid">
+      @for (item of influences; track item.title) {
+        <article class="influence-card">
+          <span class="influence-icon">{{ item.icon }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
       }
     </div>
-  </aside>
-</section>
+  </section>
 
-<section class="intro-section">
-  <p class="section-kicker">I am...</p>
+  <section class="project-section">
+    <div class="section-heading torn-heading pink">
+      <p class="eyebrow">Featured quests</p>
+      <h2>Selected work from the quest log.</h2>
+    </div>
 
-  <div class="highlight-list">
-    @for (highlight of highlights; track highlight.number) {
-      <article class="highlight-item">
-        <span class="highlight-number">{{ highlight.number }}</span>
+    <div class="project-grid">
+      @for (project of featuredProjects; track project.title) {
+        <article class="project-card">
+          <div class="project-label">
+            {{ project.label }}
+          </div>
 
-        <div>
-          <h2>{{ highlight.title }}</h2>
-          <p>{{ highlight.text }}</p>
-        </div>
-      </article>
-    }
-  </div>
-</section>
+          <h3>{{ project.title }}</h3>
 
-<section class="quest-section">
-  <div class="section-heading">
-    <p class="section-kicker">A few creative endeavours.</p>
+          <div class="quest-block">
+            <span>Objective</span>
+            <p>{{ project.objective }}</p>
+          </div>
 
-    <h2>
-      Curious to
-      <span>see</span>
-      my work?
-    </h2>
-  </div>
+          <div class="tool-list">
+            @for (tool of project.tools; track tool) {
+              <span>{{ tool }}</span>
+            }
+          </div>
 
-  <div class="quest-grid">
-    @for (quest of featuredQuests; track quest.title) {
-      <article class="quest-card">
-        <p class="quest-type">{{ quest.type }}</p>
+          <div class="quest-block reward">
+            <span>Reward</span>
+            <p>{{ project.reward }}</p>
+          </div>
 
-        <h3>{{ quest.title }}</h3>
+          <a [routerLink]="project.route" class="project-link">
+            Open quest
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      }
+    </div>
+  </section>
 
-        <p class="quest-description">
-          {{ quest.description }}
-        </p>
+  <section class="cta-section">
+    <div class="cta-poster">
+      <p class="eyebrow">Got a quest?</p>
 
-        <div class="tag-list">
-          @for (tag of quest.tags; track tag) {
-            <span>{{ tag }}</span>
-          }
-        </div>
+      <h2>Let’s build something useful, clear, and a little bit loud.</h2>
 
-        <a [routerLink]="quest.route" class="quest-link">
-          Go to quest
-          <span aria-hidden="true">→</span>
-        </a>
-      </article>
-    }
-  </div>
-</section>
+      <p>
+        I am open to junior developer opportunities, creative frontend projects,
+        and chances to keep learning through practical work.
+      </p>
 
-<section class="cta-section">
-  <p class="section-kicker">Current Quest</p>
-
-  <h2>
-    Building clean, creative Angular applications.
-  </h2>
-
-  <p>
-    Creativity helps me think about interfaces as experiences, not just layouts.
-    My goal is to build web applications that are practical, understandable,
-    and enjoyable to use.
-  </p>
-
-  <a class="primary-button" routerLink="/contact">
-    Start a Conversation
-  </a>
+      <a routerLink="/contact" class="button button-primary">
+        Contact Me
+      </a>
+    </div>
+  </section>
 </section>
