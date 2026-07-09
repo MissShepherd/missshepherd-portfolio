@@ -1,34 +1,115 @@
-<section class="hero">
-  <p class="eyebrow">Angular Developer Portfolio</p>
+<section class="hero-section">
+  <div class="hero-content">
+    <p class="eyebrow">Angular Developer Portfolio</p>
 
-  <h1>
-    Junior Frontend Developer with a creative inventory.
-  </h1>
+    <h1>
+      Junior Frontend Developer with a creative inventory.
+    </h1>
 
-  <p class="hero-text">
-    I build structured, user-friendly web applications with Angular, TypeScript,
-    and a creative eye for interfaces that feel clear, practical, and a little playful.
+    <p class="hero-text">
+      I build structured, user-friendly web applications with Angular,
+      TypeScript, and a creative eye for interfaces that feel clear,
+      practical, and a little playful.
+    </p>
+
+    <div class="hero-actions">
+      <a class="primary-button" routerLink="/projects">
+        View Quests
+      </a>
+
+      <a class="secondary-button" routerLink="/creative">
+        Open Sketchbook
+      </a>
+    </div>
+  </div>
+
+  <aside class="player-card" aria-label="Developer profile card">
+    <div class="player-card-header">
+      <span class="status-dot"></span>
+      <span>Player Profile</span>
+    </div>
+
+    <h2>Lilli / MissShepherd</h2>
+
+    <div class="stat-list">
+      @for (stat of playerStats; track stat.label) {
+        <div class="stat-item">
+          <span>{{ stat.label }}</span>
+          <strong>{{ stat.value }}</strong>
+        </div>
+      }
+    </div>
+  </aside>
+</section>
+
+<section class="intro-section">
+  <p class="section-kicker">I am...</p>
+
+  <div class="highlight-list">
+    @for (highlight of highlights; track highlight.number) {
+      <article class="highlight-item">
+        <span class="highlight-number">{{ highlight.number }}</span>
+
+        <div>
+          <h2>{{ highlight.title }}</h2>
+          <p>{{ highlight.text }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="quest-section">
+  <div class="section-heading">
+    <p class="section-kicker">A few creative endeavours.</p>
+
+    <h2>
+      Curious to
+      <span>see</span>
+      my work?
+    </h2>
+  </div>
+
+  <div class="quest-grid">
+    @for (quest of featuredQuests; track quest.title) {
+      <article class="quest-card">
+        <p class="quest-type">{{ quest.type }}</p>
+
+        <h3>{{ quest.title }}</h3>
+
+        <p class="quest-description">
+          {{ quest.description }}
+        </p>
+
+        <div class="tag-list">
+          @for (tag of quest.tags; track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+
+        <a [routerLink]="quest.route" class="quest-link">
+          Go to quest
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="cta-section">
+  <p class="section-kicker">Current Quest</p>
+
+  <h2>
+    Building clean, creative Angular applications.
+  </h2>
+
+  <p>
+    Creativity helps me think about interfaces as experiences, not just layouts.
+    My goal is to build web applications that are practical, understandable,
+    and enjoyable to use.
   </p>
 
-  <div class="hero-actions">
-    <a class="primary-button" routerLink="/projects">View Quests</a>
-    <a class="secondary-button" routerLink="/creative">Open Sketchbook</a>
-  </div>
-
-  <div class="player-card">
-    <div>
-      <span class="label">Class</span>
-      <strong>Junior Frontend Developer</strong>
-    </div>
-
-    <div>
-      <span class="label">Main Stack</span>
-      <strong>Angular, TypeScript, SCSS</strong>
-    </div>
-
-    <div>
-      <span class="label">Side Quests</span>
-      <strong>Art, gaming, UI ideas</strong>
-    </div>
-  </div>
+  <a class="primary-button" routerLink="/contact">
+    Start a Conversation
+  </a>
 </section>
