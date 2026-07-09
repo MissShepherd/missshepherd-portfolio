@@ -268,16 +268,118 @@ textarea {
   transform: rotate(8deg);
 }
 
-.mini-tag {
+.wall-sticky {
   position: absolute;
-  z-index: 32;
-  padding: 0.35rem 0.55rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 900;
+  z-index: 4;
+  width: 10rem;
+  min-height: 7rem;
+  padding: 0.85rem 0.9rem;
+  color: rgba(10, 10, 10, 0.78);
+  font-family: var(--font-note);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  border: 2px solid rgba(10, 10, 10, 0.28);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+}
+
+.wall-sticky span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 800;
   text-transform: uppercase;
-  border: 3px solid var(--border);
-  box-shadow: 4px 4px 0 var(--ink);
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.wall-sticky::before,
+.wall-mini-note::before {
+  content: '';
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  width: 3.5rem;
+  height: 1rem;
+  background: rgba(255, 245, 170, 0.55);
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.sticky-wall-1 {
+  top: 7rem;
+  left: 3rem;
+  background: #fff4a8;
+  transform: rotate(-7deg);
+}
+
+.sticky-wall-2 {
+  top: 28rem;
+  left: 6rem;
+  background: #ffd5ec;
+  transform: rotate(5deg);
+}
+
+.sticky-wall-2::before {
+  transform: translateX(-50%) rotate(8deg);
+}
+
+.sticky-wall-3 {
+  top: 8rem;
+  right: 5rem;
+  width: 9rem;
+  min-height: 5rem;
+  background: #c9f4ff;
+  transform: rotate(8deg);
+}
+
+.sticky-wall-4 {
+  bottom: 8rem;
+  right: 7rem;
+  background: #dfffaa;
+  transform: rotate(-6deg);
+}
+
+.sticky-wall-4::before {
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+.sticky-wall-5 {
+  bottom: 10rem;
+  left: 18rem;
+  width: 9.5rem;
+  min-height: 5.5rem;
+  background: #ffe0b3;
+  transform: rotate(6deg);
+}
+
+.wall-mini-note {
+  position: absolute;
+  z-index: 4;
+  padding: 0.4rem 0.65rem;
+  color: rgba(10, 10, 10, 0.72);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  background: rgba(255, 250, 210, 0.8);
+  border: 2px solid rgba(10, 10, 10, 0.22);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.14);
+  pointer-events: none;
+}
+
+.mini-wall-1 {
+  top: 18rem;
+  right: 20rem;
+  transform: rotate(-4deg);
+}
+
+.mini-wall-2 {
+  bottom: 4rem;
+  left: 8rem;
+  transform: rotate(7deg);
 }
 
 .tag-one {
