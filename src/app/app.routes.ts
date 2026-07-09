@@ -1,44 +1,45 @@
 import { Routes } from '@angular/router';
 
+import { Home } from './pages/home/home';
+import { About } from './pages/about/about';
+import { Projects } from './pages/projects/projects';
+import { Skills } from './pages/skills/skills';
+import { Creative } from './pages/creative/creative';
+import { Contact } from './pages/contact/contact';
+
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/home/home').then((m) => m.Home),
-    title: 'MissShepherd Portfolio'
+    component: Home,
+    title: 'MissShepherd | Creative Frontend Developer',
   },
   {
     path: 'about',
-    loadComponent: () =>
-      import('./pages/about/about').then((m) => m.About),
-    title: 'About | MissShepherd'
+    component: About,
+    title: 'About | MissShepherd',
   },
   {
     path: 'projects',
-    loadComponent: () =>
-      import('./pages/projects/projects').then((m) => m.Projects),
-    title: 'Quests | MissShepherd'
+    component: Projects,
+    title: 'Projects | MissShepherd',
   },
   {
     path: 'skills',
-    loadComponent: () =>
-      import('./pages/skills/skills').then((m) => m.Skills),
-    title: 'Skill Tree | MissShepherd'
+    component: Skills,
+    title: 'Skill Tree | MissShepherd',
   },
   {
     path: 'creative',
-    loadComponent: () =>
-      import('./pages/creative/creative').then((m) => m.Creative),
-    title: 'Sketchbook | MissShepherd'
+    component: Creative,
+    title: 'Creative Side | MissShepherd',
   },
   {
     path: 'contact',
-    loadComponent: () =>
-      import('./pages/contact/contact').then((m) => m.Contact),
-    title: 'Contact | MissShepherd'
+    component: Contact,
+    title: 'Contact | MissShepherd',
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];

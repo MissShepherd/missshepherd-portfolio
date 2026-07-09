@@ -1,7 +1,19 @@
-<app-header />
+<div class="chaos-bg" aria-hidden="true">
+  <span class="bg-splat one"></span>
+  <span class="bg-splat two"></span>
+  <span class="bg-splat three"></span>
 
-<main class="app-main">
-  <router-outlet />
-</main>
+  <span class="bg-scribble one">///// ★ ★ ★ side quest unlocked</span>
+  <span class="bg-scribble two">↘ start here</span>
+  <span class="bg-scribble three"></span>
+</div>
 
-<app-footer />
+<div class="app-shell">
+  <app-header />
+
+  <main class="page-shell">
+    <router-outlet />
+  </main>
+
+  <app-footer />
+</div>
