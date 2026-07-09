@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=Gloria+Hallelujah&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Permanent+Marker&display=swap');
 
 :root {
   --bg: #d9cfbf;
+  --wall: #c6becb;
   --paper: #f1e8d8;
   --paper-2: #cdbda2;
   --paper-3: #b9a98e;
@@ -28,6 +29,14 @@
   --radius-sm: 0.45rem;
   --radius: 1rem;
   --radius-lg: 1.75rem;
+
+  --font-heading: 'Anton', Impact, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --font-marker: 'Permanent Marker', cursive;
+  --font-hand: 'Caveat', cursive;
+  --font-note: 'Gloria Hallelujah', cursive;
 }
 
 * {
@@ -42,13 +51,17 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 0, 122, 0.18), transparent 16rem),
-    radial-gradient(circle at 88% 20%, rgba(0, 217, 255, 0.14), transparent 18rem),
-    radial-gradient(circle at 50% 90%, rgba(213, 255, 0, 0.22), transparent 20rem),
-    linear-gradient(135deg, rgba(0, 0, 0, 0.045) 25%, transparent 25%) 0 0 / 18px 18px,
-    var(--bg);
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    repeating-linear-gradient(
+      -10deg,
+      rgba(0, 0, 0, 0.035) 0,
+      rgba(0, 0, 0, 0.035) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    var(--wall);
 }
 
 body::before {
@@ -165,31 +178,94 @@ textarea {
 
 .bg-scribble {
   position: absolute;
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
+  pointer-events: none;
+  color: rgba(5, 5, 5, 0.45);
   font-weight: 900;
-  opacity: 0.28;
+  line-height: 1.1;
+}
+
+.bg-scribble.marker {
+  font-family: var(--font-marker);
+  letter-spacing: 0.02em;
+}
+
+.bg-scribble.hand {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.bg-scribble.note {
+  font-family: var(--font-note);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.bg-scribble.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.bg-scribble.pink {
+  color: rgba(255, 0, 122, 0.7);
+}
+
+.bg-scribble.acid {
+  color: rgba(213, 255, 0, 0.8);
+  text-shadow: 1px 1px 0 var(--ink);
+}
+
+.bg-scribble.faded {
+  opacity: 0.32;
 }
 
 .bg-scribble.one {
   top: 1rem;
-  left: 0.5rem;
+  left: 0.8rem;
+  font-size: 1rem;
+  transform: rotate(-2deg);
 }
 
 .bg-scribble.two {
-  right: 12rem;
-  top: 8rem;
+  top: 7rem;
+  right: 10rem;
+  font-size: 1.35rem;
   transform: rotate(-10deg);
 }
 
 .bg-scribble.three {
-  left: 14rem;
-  top: 3rem;
-  width: 6rem;
-  height: 1.5rem;
-  background: rgba(255, 245, 170, 0.65);
-  border: 2px solid rgba(10, 10, 10, 0.5);
-  transform: rotate(-7deg);
+  top: 20rem;
+  left: 6rem;
+  font-size: 1.25rem;
+  transform: rotate(-6deg);
+}
+
+.bg-scribble.four {
+  bottom: 8rem;
+  right: 18rem;
+  font-size: 2.2rem;
+  transform: rotate(8deg);
+}
+
+.bg-scribble.five {
+  bottom: 13rem;
+  left: 10rem;
+  font-size: 1.3rem;
+  transform: rotate(4deg);
+}
+
+.bg-scribble.six {
+  bottom: 4rem;
+  right: 6rem;
+  font-size: 1rem;
+  transform: rotate(-5deg);
+}
+
+.bg-scribble.seven {
+  top: 14rem;
+  left: 18rem;
+  font-size: 1.8rem;
+  transform: rotate(8deg);
 }
 
 .mini-tag {
