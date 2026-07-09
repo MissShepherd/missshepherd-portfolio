@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #101116;
+  --bg-soft: #171923;
+  --card: #1f2230;
+  --card-hover: #272b3b;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --accent: #a855f7;
+  --accent-2: #38bdf8;
+  --accent-3: #f472b6;
+  --border: rgba(255, 255, 255, 0.1);
+  --radius: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(168, 85, 247, 0.18), transparent 32rem),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 28rem),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-main {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+}

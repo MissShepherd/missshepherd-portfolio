@@ -1,1 +1,15 @@
-<p>header works!</p>
+<header class="site-header">
+  <a class="brand" routerLink="/">
+    <span class="brand-mark">MS</span>
+    <span class="brand-text">MissShepherd</span>
+  </a>
+
+  <nav class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/projects" routerLinkActive="active">Quests</a>
+    <a routerLink="/skills" routerLinkActive="active">Skill Tree</a>
+    <a routerLink="/creative" routerLinkActive="active">Sketchbook</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav>
+</header>
