@@ -308,73 +308,137 @@
   transform: rotate(5deg);
 }
 
-/* Pinned small cards */
+/* Pinned sticky notes */
 
-.pin-card {
+.pin-note {
   position: absolute;
-  z-index: 14;
-  min-width: 8rem;
-  max-width: 12rem;
-  padding: 0.8rem 1rem;
+  z-index: 16;
+  width: 10.5rem;
+  min-height: 5.8rem;
+  padding: 0.9rem 1rem;
   color: var(--ink);
   font-family: var(--font-note);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 700;
   line-height: 1.25;
-  border: 2px solid rgba(0, 0, 0, 0.28);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.18);
+  border: 2px solid rgba(10, 10, 10, 0.28);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
 }
 
-.pin-card span {
+.pin-note span {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.58rem;
   font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   opacity: 0.75;
 }
 
-.pin-card::before {
+.pin-note::before {
   content: '';
   position: absolute;
-  top: 0.35rem;
-  left: 50%;
-  width: 13px;
-  height: 13px;
+  top: 0.4rem;
+  right: 0.55rem;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: #d52b2b;
   border: 2px solid #7a1010;
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
-  transform: translateX(-50%);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
-.pin-card-1 {
-  top: 2.4rem;
-  right: 18rem;
-  background: #bdf3ff;
+/* subtle paper texture */
+.pin-note::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: radial-gradient(circle, #000 0.8px, transparent 0.8px);
+  background-size: 5px 5px;
+}
+
+/* colours */
+
+.note-blue {
+  background: #aaf2ff;
+}
+
+.note-pink {
+  background: #ffc3e7;
+}
+
+.note-yellow {
+  background: #fff06a;
+}
+
+.note-green {
+  background: #cfff7a;
+}
+
+.note-paper {
+  background: #f5e7bd;
+}
+
+/* positions */
+
+.note-colour {
+  top: 2.6rem;
+  right: 17rem;
   transform: rotate(3deg);
 }
 
-.pin-card-2 {
-  bottom: 3.4rem;
-  left: 17rem;
-  background: #fff19a;
-  transform: rotate(-4deg);
-}
-
-.pin-card-3 {
+.note-inspo {
   top: 13rem;
   left: 4.2rem;
-  background: #ffd6f0;
   transform: rotate(-7deg);
 }
 
-.pin-card-4 {
-  bottom: 7.2rem;
-  right: 13rem;
-  background: #d6ff8c;
+.note-ui {
+  bottom: 4.2rem;
+  left: 18rem;
+  transform: rotate(-4deg);
+}
+
+.note-hotfix {
+  bottom: 7.6rem;
+  right: 12.2rem;
   transform: rotate(5deg);
+}
+
+.note-extra {
+  top: 22rem;
+  right: 4.5rem;
+  transform: rotate(-5deg);
+}
+
+/* pin colour variation */
+
+.note-blue::before {
+  background: #d52b2b;
+  border-color: #7a1010;
+}
+
+.note-pink::before {
+  background: #d52b2b;
+  border-color: #7a1010;
+}
+
+.note-yellow::before {
+  background: #1976d2;
+  border-color: #0c3970;
+}
+
+.note-green::before {
+  background: #ffd400;
+  border-color: #856c00;
+}
+
+.note-paper::before {
+  background: var(--pink);
+  border-color: #7a003c;
 }
 
 /* Essential board stickers */
