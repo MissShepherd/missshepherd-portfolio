@@ -1,18 +1,31 @@
 <header class="site-header">
+  <span class="header-tape tape-left" aria-hidden="true"></span>
+  <span class="header-tape tape-right" aria-hidden="true"></span>
+
   <a class="brand" routerLink="/" aria-label="Go to homepage">
     <span class="brand-mark">MS</span>
-    <span>
+
+    <span class="brand-copy">
       <strong>MissShepherd</strong>
       <small>frontend side quest</small>
     </span>
   </a>
 
   <nav class="nav" aria-label="Main navigation">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </a>
+
     <a routerLink="/about" routerLinkActive="active">About</a>
     <a routerLink="/projects" routerLinkActive="active">Projects</a>
     <a routerLink="/skills" routerLinkActive="active">Skill Tree</a>
     <a routerLink="/creative" routerLinkActive="active">Creative</a>
     <a routerLink="/contact" routerLinkActive="active">Contact</a>
   </nav>
+
+  <span class="header-note" aria-hidden="true">nav.exe</span>
 </header>
