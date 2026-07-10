@@ -484,7 +484,8 @@ textarea {
   }
 
   .wall-sticky,
-  .wall-mini-note {
+  .wall-mini-note,
+  .wall-deco {
     display: none;
   }
 
@@ -494,4 +495,140 @@ textarea {
   .bg-scribble.seven {
     display: none;
   }
+}
+
+/* Wall decorations */
+
+.wall-deco {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+}
+
+.wall-deco.star {
+  font-family: var(--font-marker);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wall-deco.spark {
+  font-family: var(--font-note);
+}
+
+.wall-deco.doodle {
+  color: rgba(10, 10, 10, 0.5);
+  font-family: var(--font-hand);
+  font-weight: 700;
+}
+
+/* Bigger overall size system */
+
+.wall-deco.medium {
+  font-size: 1.9rem;
+  opacity: 0.78;
+}
+
+.wall-deco.big {
+  font-size: 3.4rem;
+  opacity: 0.9;
+}
+
+/* Left wall cluster, more spread out */
+
+.deco-star-1 {
+  top: 13.5rem;
+  left: 11.8rem;
+  color: #ffd400;
+  transform: rotate(-10deg);
+}
+
+.deco-star-2 {
+  top: 16.9rem;
+  left: 19.2rem;
+  color: #d5ff00;
+  transform: rotate(8deg);
+}
+
+.deco-cross-1 {
+  top: 18rem;
+  left: 24.2rem;
+  color: rgba(10, 10, 10, 0.42);
+  transform: rotate(-10deg);
+}
+
+.deco-heart-1 {
+  top: 26.3rem;
+  left: 2.8rem;
+  color: rgba(255, 0, 122, 0.62);
+  transform: rotate(-8deg);
+}
+
+/* Mid-left / lower-left */
+
+.deco-code-1 {
+  bottom: 14rem;
+  left: 19.8rem;
+  color: rgba(10, 10, 10, 0.45);
+  transform: rotate(-8deg);
+}
+
+.deco-spark-2 {
+  bottom: 10.8rem;
+  left: 30.6rem;
+  color: #00d9ff;
+  transform: rotate(-6deg);
+}
+
+.deco-circle-2 {
+  bottom: 4.2rem;
+  left: 18.8rem;
+  color: rgba(10, 10, 10, 0.35);
+  transform: rotate(7deg);
+}
+
+/* Top-right wall */
+
+.deco-star-3 {
+  top: 10.2rem;
+  right: 20.2rem;
+  color: #ffb800;
+  transform: rotate(-12deg);
+}
+
+.deco-bolt-1 {
+  top: 8.4rem;
+  right: 28.2rem;
+  color: #ff8a00;
+  transform: rotate(6deg);
+}
+
+.deco-xp-1 {
+  top: 14.8rem;
+  right: 18.8rem;
+  color: rgba(255, 90, 0, 0.82);
+  transform: rotate(6deg);
+}
+
+/* Right wall */
+
+.deco-spark-1 {
+  top: 22.4rem;
+  right: 6.4rem;
+  color: #00d9ff;
+  transform: rotate(8deg);
+}
+
+.deco-circle-1 {
+  top: 31rem;
+  right: 6.2rem;
+  color: rgba(10, 10, 10, 0.28);
+  transform: rotate(-4deg);
+}
+
+.deco-cross-2 {
+  bottom: 8.4rem;
+  right: 26.4rem;
+  color: rgba(10, 10, 10, 0.42);
+  transform: rotate(12deg);
 }
