@@ -33,7 +33,6 @@
   --font-heading: 'Anton', Impact, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
   --font-marker: 'Permanent Marker', cursive;
   --font-hand: 'Caveat', cursive;
   --font-note: 'Gloria Hallelujah', cursive;
@@ -109,7 +108,7 @@ textarea {
 
 .page-title {
   margin: 0 0 1rem;
-  font-family: 'Anton', Impact, sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 8vw, 6.5rem);
   line-height: 0.85;
   text-transform: uppercase;
@@ -121,7 +120,7 @@ textarea {
   margin-bottom: 1rem;
   padding: 0.45rem 0.75rem;
   color: var(--acid);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -130,6 +129,8 @@ textarea {
   box-shadow: 4px 4px 0 var(--pink);
 }
 
+/* Wall layer */
+
 .chaos-bg {
   position: fixed;
   inset: 0;
@@ -137,6 +138,8 @@ textarea {
   overflow: hidden;
   pointer-events: none;
 }
+
+/* Colour splats */
 
 .bg-splat {
   position: absolute;
@@ -176,8 +179,11 @@ textarea {
   border-radius: 43% 57% 53% 47% / 59% 42% 58% 41%;
 }
 
+/* Wall scribbles */
+
 .bg-scribble {
   position: absolute;
+  z-index: 3;
   pointer-events: none;
   color: rgba(5, 5, 5, 0.45);
   font-weight: 900;
@@ -227,10 +233,10 @@ textarea {
 }
 
 .bg-scribble.two {
-  top: 7rem;
-  right: 10rem;
-  font-size: 1.35rem;
-  transform: rotate(-10deg);
+  top: 5.8rem;
+  right: 9.2rem;
+  font-size: 1.1rem;
+  transform: rotate(-9deg);
 }
 
 .bg-scribble.three {
@@ -241,23 +247,16 @@ textarea {
 }
 
 .bg-scribble.four {
-  bottom: 8rem;
-  right: 18rem;
-  font-size: 2.2rem;
-  transform: rotate(8deg);
-}
-
-.bg-scribble.five {
-  bottom: 13rem;
-  left: 10rem;
-  font-size: 1.3rem;
-  transform: rotate(4deg);
+  bottom: 9.6rem;
+  right: 12.8rem;
+  font-size: 1.75rem;
+  transform: rotate(5deg);
 }
 
 .bg-scribble.six {
-  bottom: 4rem;
-  right: 6rem;
-  font-size: 1rem;
+  bottom: 2.4rem;
+  right: 17rem;
+  font-size: 0.95rem;
   transform: rotate(-5deg);
 }
 
@@ -267,6 +266,8 @@ textarea {
   font-size: 1.8rem;
   transform: rotate(8deg);
 }
+
+/* Wall sticky notes */
 
 .wall-sticky {
   position: absolute;
@@ -282,6 +283,7 @@ textarea {
   border: 2px solid rgba(10, 10, 10, 0.28);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.16);
   pointer-events: none;
+  filter: contrast(1.05) saturate(1.08);
 }
 
 .wall-sticky span {
@@ -295,8 +297,7 @@ textarea {
   opacity: 0.7;
 }
 
-.wall-sticky::before,
-.wall-mini-note::before {
+.wall-sticky::before {
   content: '';
   position: absolute;
   top: -0.65rem;
@@ -308,17 +309,40 @@ textarea {
   transform: translateX(-50%) rotate(-6deg);
 }
 
+.wall-sticky::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(circle, #000 0.7px, transparent 0.7px);
+  background-size: 5px 5px;
+}
+
+.wall-loot-arrow {
+  position: absolute;
+  top: 2.7rem;
+  right: -4.8rem;
+  z-index: 10;
+  color: rgba(5, 5, 5, 0.5);
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: rotate(-6deg);
+}
+
 .sticky-wall-1 {
-  top: 7rem;
-  left: 3rem;
-  background: #fff4a8;
+  top: 6.5rem;
+  left: 2.5rem;
+  background: #fff06a;
   transform: rotate(-7deg);
 }
 
 .sticky-wall-2 {
-  top: 28rem;
-  left: 6rem;
-  background: #ffd5ec;
+  top: 25rem;
+  left: 5rem;
+  background: #ff9dcc;
   transform: rotate(5deg);
 }
 
@@ -327,19 +351,19 @@ textarea {
 }
 
 .sticky-wall-3 {
-  top: 8rem;
-  right: 5rem;
+  top: 8.6rem;
+  right: 4.8rem;
   width: 9rem;
   min-height: 5rem;
-  background: #c9f4ff;
-  transform: rotate(8deg);
+  background: #9eefff;
+  transform: rotate(7deg);
 }
 
 .sticky-wall-4 {
-  bottom: 8rem;
-  right: 7rem;
-  background: #dfffaa;
-  transform: rotate(-6deg);
+  bottom: 4.6rem;
+  right: 1.4rem;
+  background: #cfff7a;
+  transform: rotate(-5deg);
 }
 
 .sticky-wall-4::before {
@@ -347,13 +371,15 @@ textarea {
 }
 
 .sticky-wall-5 {
-  bottom: 10rem;
-  left: 18rem;
+  bottom: 7rem;
+  left: 10rem;
   width: 9.5rem;
   min-height: 5.5rem;
-  background: #ffe0b3;
+  background: #ffbd73;
   transform: rotate(6deg);
 }
+
+/* Small wall scraps */
 
 .wall-mini-note {
   position: absolute;
@@ -368,18 +394,55 @@ textarea {
   border: 2px solid rgba(10, 10, 10, 0.22);
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.14);
   pointer-events: none;
+  filter: contrast(1.05) saturate(1.08);
+}
+
+.wall-mini-note::before {
+  content: '';
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  width: 3.5rem;
+  height: 1rem;
+  background: rgba(255, 245, 170, 0.55);
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.wall-mini-note::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(circle, #000 0.7px, transparent 0.7px);
+  background-size: 5px 5px;
 }
 
 .mini-wall-1 {
-  top: 18rem;
-  right: 20rem;
+  top: 16.9rem;
+  right: 5.7rem;
   transform: rotate(-4deg);
 }
 
 .mini-wall-2 {
-  bottom: 4rem;
-  left: 8rem;
+  bottom: 3.2rem;
+  left: 4.8rem;
   transform: rotate(7deg);
+}
+
+/* Mini tags for board or sections */
+
+.mini-tag {
+  position: absolute;
+  z-index: 32;
+  padding: 0.35rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .tag-one {
@@ -392,8 +455,8 @@ textarea {
 .tag-two {
   right: 5rem;
   top: -3.2rem;
-  background: var(--pink);
   color: white;
+  background: var(--pink);
   transform: rotate(5deg);
 }
 
@@ -409,4 +472,26 @@ textarea {
   bottom: 12rem;
   background: var(--cyan);
   transform: rotate(8deg);
+}
+
+/* Mobile cleanup */
+
+@media (max-width: 900px) {
+  .bg-splat.one,
+  .bg-splat.two,
+  .bg-splat.three {
+    opacity: 0.14;
+  }
+
+  .wall-sticky,
+  .wall-mini-note {
+    display: none;
+  }
+
+  .bg-scribble.three,
+  .bg-scribble.four,
+  .bg-scribble.six,
+  .bg-scribble.seven {
+    display: none;
+  }
 }
