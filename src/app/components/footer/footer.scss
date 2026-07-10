@@ -1,9 +1,84 @@
 .site-footer {
-  width: min(1120px, calc(100% - 2rem));
-  margin: 0 auto 2rem;
-  padding: 1.25rem;
-  color: var(--muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  position: relative;
+  width: min(900px, calc(100% - 2rem));
+  margin: 2rem auto 2.5rem;
+  padding: 1.15rem 1.5rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
   text-align: center;
+  border: 3px solid var(--border);
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      rgba(0, 0, 0, 0.035) 0,
+      rgba(0, 0, 0, 0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    rgba(241, 232, 216, 0.9);
+  box-shadow: 7px 7px 0 var(--ink);
+  transform: rotate(-0.4deg);
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0.45rem;
+  border: 2px dashed rgba(10, 10, 10, 0.22);
+  pointer-events: none;
+}
+
+.site-footer p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-weight: 800;
+}
+
+.site-footer small {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: rgba(10, 10, 10, 0.55);
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  transform: rotate(1.5deg);
+}
+
+.footer-tape {
+  position: absolute;
+  z-index: 3;
+  width: 4.5rem;
+  height: 1.15rem;
+  background: rgba(255, 245, 170, 0.62);
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  pointer-events: none;
+}
+
+.tape-one {
+  top: -0.55rem;
+  left: 2rem;
+  transform: rotate(-7deg);
+}
+
+.tape-two {
+  right: 2.5rem;
+  bottom: -0.45rem;
+  transform: rotate(6deg);
+}
+
+@media (max-width: 620px) {
+  .site-footer {
+    width: min(100% - 1rem, 900px);
+    padding: 1rem;
+    font-size: 0.75rem;
+    transform: none;
+  }
+
+  .site-footer small {
+    font-size: 0.95rem;
+  }
 }
