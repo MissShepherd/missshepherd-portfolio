@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Caveat:wght@600;700&family=Gloria+Hallelujah&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Permanent+Marker&display=swap');
 .kobold-hero {
   min-height: calc(100vh - 9rem);
   display: grid;
@@ -5,90 +6,107 @@
   padding: 2rem 0 4rem;
 }
 
-/* Main board */
+/* Main cork pinboard */
 
-.poster-wall {
+.pinboard {
   position: relative;
   width: min(1120px, 100%);
-  min-height: 700px;
+  min-height: 740px;
   display: grid;
   place-items: center;
-  padding: 3rem 2rem;
-  border: 5px solid var(--border);
+  padding: 4rem 3rem;
+  border: 14px solid #6f4a2e;
+  border-radius: 0.35rem;
   background:
-    linear-gradient(160deg, rgba(0, 0, 0, 0.16) 0 12%, transparent 12% 100%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px),
+    radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 0.08) 0 1.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 75%, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px),
     repeating-linear-gradient(
-      -12deg,
-      rgba(0, 0, 0, 0.035) 0,
-      rgba(0, 0, 0, 0.035) 2px,
+      45deg,
+      rgba(90, 62, 35, 0.08) 0,
+      rgba(90, 62, 35, 0.08) 2px,
       transparent 2px,
-      transparent 10px
+      transparent 8px
     ),
-    var(--paper);
-  box-shadow: 16px 16px 0 var(--ink);
+    linear-gradient(180deg, #b98958 0%, #a87546 100%);
+  box-shadow:
+    0 0 0 3px #3f2817 inset,
+    16px 16px 0 var(--ink);
   overflow: hidden;
 }
 
-.poster-wall::before {
+.pinboard::before {
   content: '';
   position: absolute;
-  inset: 1.1rem;
+  inset: 1rem;
   z-index: 1;
-  border: 3px dashed rgba(10, 10, 10, 0.75);
+  border: 3px dashed rgba(20, 12, 8, 0.45);
   pointer-events: none;
 }
 
-.poster-wall::after {
+.pinboard::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.18;
+  opacity: 0.14;
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.16) 0,
-      rgba(0, 0, 0, 0.16) 1px,
+      rgba(0, 0, 0, 0.14) 0,
+      rgba(0, 0, 0, 0.14) 1px,
       transparent 1px,
       transparent 5px
     );
 }
 
-.wall-noise {
+.board-noise {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.12;
-  background-image: radial-gradient(circle, #000 0.8px, transparent 0.8px);
-  background-size: 9px 9px;
+  opacity: 0.18;
+  background-image: radial-gradient(circle, #000 0.9px, transparent 0.9px);
+  background-size: 10px 10px;
 }
 
-/* Hero card */
+/* Main hero card */
 
 .hero-card {
   position: relative;
-  z-index: 20;
-  width: min(760px, 100%);
-  padding: 2rem;
+  z-index: 25;
+  width: min(700px, 100%);
+  padding: 1.8rem;
   text-align: center;
   background:
     linear-gradient(135deg, rgba(255, 0, 122, 0.08), transparent 48%),
-    rgba(241, 232, 216, 0.97);
+    #d7c7ab;
   border: 4px solid var(--border);
   box-shadow: 11px 11px 0 var(--ink);
   transform: rotate(-1deg);
 }
 
-.hero-card::before {
+.hero-card::before,
+.hero-card::after {
   content: '';
   position: absolute;
-  inset: -1.2rem;
-  z-index: -1;
-  background: var(--paper-2);
-  border: 3px solid var(--border);
-  transform: rotate(2deg);
+  top: 0.9rem;
+  z-index: 5;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d52b2b;
+  border: 2px solid #7a1010;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+.hero-card::before {
+  left: 1rem;
+}
+
+.hero-card::after {
+  right: 1rem;
 }
 
 .eyebrow {
@@ -109,23 +127,25 @@
 .hero-card h1 {
   margin: 0;
   color: var(--ink);
-  font-family: var(--font-heading);
-  font-size: clamp(4.4rem, 13vw, 11rem);
-  line-height: 0.78;
-  letter-spacing: -0.04em;
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 8vw, 7.2rem);
+  line-height: 0.98;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
 }
 
 .hero-card h1 span {
   display: block;
+  margin-top: 0.08em;
   color: var(--pink);
+  -webkit-text-stroke: 3px var(--ink);
   text-shadow:
-    3px 3px 0 var(--acid),
-    6px 6px 0 var(--ink);
+    4px 4px 0 var(--acid),
+    8px 8px 0 var(--ink);
 }
 
 .tagline {
-  max-width: 650px;
+  max-width: 590px;
   margin: 1.5rem auto 2rem;
   color: var(--ink);
   font-size: clamp(1rem, 1.9vw, 1.22rem);
@@ -174,7 +194,7 @@
 
 .warning-strip {
   position: absolute;
-  z-index: 7;
+  z-index: 8;
   padding: 0.45rem 2rem;
   color: var(--acid);
   font-family: var(--font-mono);
@@ -204,7 +224,7 @@
   position: absolute;
   z-index: 3;
   background: var(--ink);
-  opacity: 0.92;
+  opacity: 0.72;
   mix-blend-mode: multiply;
 }
 
@@ -232,16 +252,16 @@
   right: 12%;
   bottom: 14%;
   background: var(--pink);
-  opacity: 0.82;
+  opacity: 0.68;
   border-radius: 48% 52% 66% 34% / 42% 57% 43% 58%;
   transform: rotate(31deg);
 }
 
 .paper-scrap {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   border: 3px solid var(--border);
-  background: var(--paper-3);
+  background: #cdbda2;
   box-shadow: 6px 6px 0 var(--ink);
 }
 
@@ -263,7 +283,7 @@
 
 .tape-piece {
   position: absolute;
-  z-index: 25;
+  z-index: 35;
   width: 6.5rem;
   height: 1.6rem;
   background: rgba(255, 245, 170, 0.65);
@@ -288,7 +308,76 @@
   transform: rotate(5deg);
 }
 
-/* Essential board stickers only */
+/* Pinned small cards */
+
+.pin-card {
+  position: absolute;
+  z-index: 14;
+  min-width: 8rem;
+  max-width: 12rem;
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  font-family: var(--font-note);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  border: 2px solid rgba(0, 0, 0, 0.28);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+.pin-card span {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.pin-card::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d52b2b;
+  border: 2px solid #7a1010;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  transform: translateX(-50%);
+}
+
+.pin-card-1 {
+  top: 2.4rem;
+  right: 18rem;
+  background: #bdf3ff;
+  transform: rotate(3deg);
+}
+
+.pin-card-2 {
+  bottom: 3.4rem;
+  left: 17rem;
+  background: #fff19a;
+  transform: rotate(-4deg);
+}
+
+.pin-card-3 {
+  top: 13rem;
+  left: 4.2rem;
+  background: #ffd6f0;
+  transform: rotate(-7deg);
+}
+
+.pin-card-4 {
+  bottom: 7.2rem;
+  right: 13rem;
+  background: #d6ff8c;
+  transform: rotate(5deg);
+}
+
+/* Essential board stickers */
 
 .dev-sticker {
   position: absolute;
@@ -301,6 +390,19 @@
   background: var(--paper);
   border: 4px solid var(--border);
   box-shadow: 7px 7px 0 var(--ink);
+}
+
+.dev-sticker::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  right: 0.45rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2px solid #0c3970;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
 }
 
 .dev-sticker span {
@@ -333,11 +435,16 @@
 }
 
 .sticker-bug {
-  right: 2rem;
-  bottom: 4.5rem;
+  right: 1rem;
+  bottom: 3.6rem;
   color: white;
   background: var(--red);
   transform: rotate(7deg);
+}
+
+.sticker-bug::before {
+  background: #ffd400;
+  border-color: #856c00;
 }
 
 /* Terminal */
@@ -345,7 +452,7 @@
 .terminal-fragment {
   position: absolute;
   z-index: 18;
-  left: -2rem;
+  left: -1rem;
   bottom: 9rem;
   width: 16rem;
   padding: 0.85rem;
@@ -357,6 +464,18 @@
   border: 4px solid var(--border);
   box-shadow: 7px 7px 0 var(--ink);
   transform: rotate(-4deg);
+}
+
+.terminal-fragment::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid #7a1010;
 }
 
 .terminal-fragment p {
@@ -504,12 +623,13 @@
     grid-template-columns: 1fr;
   }
 
-  .poster-wall {
+  .pinboard {
     min-height: auto;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     padding: 2rem 1rem;
+    border-width: 10px;
   }
 
   .dev-sticker,
@@ -517,7 +637,8 @@
   .warning-strip,
   .scribble,
   .tape-piece,
-  .paper-scrap {
+  .paper-scrap,
+  .pin-card {
     position: relative;
     inset: auto;
     margin: 0.35rem;
@@ -525,7 +646,7 @@
   }
 
   .ink-splat,
-  .wall-noise {
+  .board-noise {
     display: none;
   }
 
@@ -534,11 +655,12 @@
     transform: none;
   }
 
-  .hero-card::before {
-    transform: none;
+  .hero-card::before,
+  .hero-card::after {
+    display: none;
   }
 
-  .poster-wall::before {
+  .pinboard::before {
     inset: 0.75rem;
   }
 }
@@ -548,7 +670,7 @@
     padding-top: 1rem;
   }
 
-  .poster-wall {
+  .pinboard {
     padding: 1.5rem 0.75rem;
   }
 
@@ -556,10 +678,9 @@
     padding: 1.2rem;
   }
 
-  .hero-card h1 {
-    font-size: clamp(3.7rem, 21vw, 5.6rem);
-  }
-
+.hero-card h1 {
+  font-size: clamp(4.2rem, 11vw, 9.4rem);
+}
   .tagline {
     font-size: 1rem;
   }
