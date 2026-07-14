@@ -1,22 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Caveat:wght@600;700&family=Gloria+Hallelujah&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Permanent+Marker&display=swap');
 
 .kobold-hero {
-  min-height: calc(100vh - 9rem);
+  min-height: auto;
   display: grid;
   place-items: start center;
-  padding: 2.2rem 0 7rem;
+  padding: 0 0 2.5rem;
+
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -2rem;
 }
 
 /* Main cork pinboard */
-
 .pinboard {
   position: relative;
   isolation: isolate;
-  width: min(1320px, calc(100% - 2rem));
-  min-height: 820px;
+  width: min(1420px, calc(100vw - 5rem));
+  min-height: 750px;
   display: grid;
   place-items: center;
-  padding: 5rem 4.5rem;
+  padding: 3.8rem 4.8rem;
   border: 14px solid #6f4a2e;
   border-radius: 0.35rem;
   background:
@@ -489,8 +492,8 @@
 /* Sticky notes */
 
 .note-colour {
-  --x: 57rem;
-  --y: 0.8rem;
+  --x: 67rem;
+  --y: 2rem;
   --rot: 2deg;
   --z: 58;
 
