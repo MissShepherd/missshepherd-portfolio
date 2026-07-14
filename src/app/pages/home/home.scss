@@ -215,16 +215,19 @@
 }
 
 .strip-one {
-  top: 4.2rem;
-  left: -5.8rem;
-  transform: rotate(-8deg);
+  --x: -5.8rem;
+  --y: 4.2rem;
+  --rot: -8deg;
+  --z: 10;
 }
 
 .strip-two {
-  right: -5.2rem;
-  bottom: 5.6rem;
+  --x: 69rem;
+  --y: 35.5rem;
+  --rot: 10deg;
+  --z: 56;
+
   color: var(--pink);
-  transform: rotate(10deg);
 }
 
 .ink-splat {
@@ -266,33 +269,37 @@
 
 .paper-scrap {
   position: absolute;
-  z-index: 5;
+  z-index: var(--z, 5);
   border: 3px solid var(--border);
   background: #cdbda2;
   box-shadow: 6px 6px 0 var(--ink);
 }
 
 .scrap-one {
+  --x: 16rem;
+  --y: 18rem;
+  --rot: -9deg;
+  --z: 5;
+
   width: 18rem;
   height: 8rem;
-  top: 6rem;
-  left: 18rem;
-  transform: rotate(-9deg);
 }
 
 .scrap-two {
+  --x: 57rem;
+  --y: 22rem;
+  --rot: 12deg;
+  --z: 5;
+
   width: 14rem;
   height: 7rem;
-  right: 12rem;
-  bottom: 5rem;
-  transform: rotate(12deg);
 }
 
 /* Loose tape for the main paper stack */
 
 .tape-piece {
   position: absolute;
-  z-index: 38;
+  z-index: var(--z, 38);
   width: 5.4rem;
   height: 1.1rem;
   background: rgba(245, 231, 189, 0.82);
@@ -301,21 +308,17 @@
 }
 
 .tape-one {
-  top: 5.2rem;
-  left: 21rem;
-  transform: rotate(-9deg);
-}
-
-.tape-two {
-  top: 5.9rem;
-  right: 31rem;
-  transform: rotate(6deg);
+  --x: 17rem;
+  --y: 18.4rem;
+  --rot: -9deg;
+  --z: 38;
 }
 
 .tape-three {
-  right: 13rem;
-  bottom: 2.6rem;
-  transform: rotate(10deg);
+  --x: 64rem;
+  --y: 22rem;
+  --rot: 10deg;
+  --z: 38;
 }
 
 /* Collage notes and clippings */
@@ -480,7 +483,9 @@
 .dev-sticker,
 .terminal-fragment,
 .warning-strip,
-.scribble {
+.scribble,
+.paper-scrap,
+.tape-piece {
   top: var(--y);
   left: var(--x);
   right: auto;
@@ -501,8 +506,8 @@
 }
 
 .note-inspo {
-  --x: 2rem;
-  --y: 9.7rem;
+  --x: 4rem;
+  --y: 14.7rem;
   --rot: -7deg;
   --z: 58;
 
@@ -519,8 +524,8 @@
 }
 
 .note-quest {
-  --x: 46rem;
-  --y: 48rem;
+  --x: 59rem;
+  --y: 32rem;
   --rot: -3deg;
   --z: 58;
 
@@ -540,8 +545,8 @@
 /* Clippings */
 
 .clipping-map {
-  --x: 30rem;
-  --y: 3rem;
+  --x: 32rem;
+  --y: 0.5rem;
   --rot: -8deg;
   --z: 36;
 
@@ -553,8 +558,8 @@
 }
 
 .clipping-ticket {
-  --x: 40rem;
-  --y: 2.8rem;
+  --x: 52rem;
+  --y: 2rem;
   --rot: 5deg;
   --z: 58;
 
@@ -564,8 +569,8 @@
 }
 
 .clipping-photo {
-  --x: 62rem;
-  --y: 39.5rem;
+  --x: 50rem;
+  --y: 41.5rem;
   --rot: 8deg;
   --z: 36;
 
@@ -579,8 +584,8 @@
 }
 
 .clipping-list {
-  --x: 1.2rem;
-  --y: 24rem;
+  --x: 5.2rem;
+  --y: 25rem;
   --rot: -5deg;
   --z: 58;
 
@@ -591,8 +596,8 @@
 /* Dev stickers */
 
 .sticker-build {
-  --x: 5.4rem;
-  --y: 6.2rem;
+  --x: 8rem;
+  --y: 8.2rem;
   --rot: 7deg;
   --z: 55;
 
@@ -609,8 +614,8 @@
 }
 
 .sticker-side {
-  --x: 1rem;
-  --y: 45.5rem;
+  --x: 21rem;
+  --y: 40rem;
   --rot: -4deg;
   --z: 55;
 
@@ -618,8 +623,8 @@
 }
 
 .sticker-bug {
-  --x: 68rem;
-  --y: 42.3rem;
+  --x: 73rem;
+  --y: 30.3rem;
   --rot: 7deg;
   --z: 55;
 
@@ -631,21 +636,21 @@
 
 .terminal-fragment {
   --x: 2rem;
-  --y: 34rem;
+  --y: 36rem;
   --rot: -4deg;
   --z: 24;
 }
 
 .scribble-main {
-  --x: 3rem;
-  --y: 47rem;
+  --x: 3em;
+  --y: 32rem;
   --rot: -2deg;
-  --z: 56;
+  --z: 6;
 }
 
 .strip-one {
-  --x: 0.5rem;
-  --y: 4.5rem;
+  --x: 1.5rem;
+  --y: 2.5rem;
   --rot: -8deg;
   --z: 10;
 }
@@ -738,7 +743,7 @@
 }
 
 .scribble-main {
-  left: 1.4rem;
+  left: 20rem;
   bottom: 0.8rem;
   transform: rotate(-2deg);
 }
