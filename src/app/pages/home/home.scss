@@ -3,8 +3,8 @@
 .kobold-hero {
   min-height: calc(100vh - 9rem);
   display: grid;
-  place-items: center;
-  padding: 4rem 0 5rem;
+  place-items: start center;
+  padding: 2.2rem 0 7rem;
 }
 
 /* Main cork pinboard */
@@ -71,8 +71,6 @@
   background-image: radial-gradient(circle, #000 0.9px, transparent 0.9px);
   background-size: 10px 10px;
 }
-
-/* Main hero card */
 
 /* Main hero card */
 
@@ -214,14 +212,14 @@
 }
 
 .strip-one {
-  top: 5rem;
-  left: -4rem;
+  top: 4.2rem;
+  left: -5.8rem;
   transform: rotate(-8deg);
 }
 
 .strip-two {
-  right: -6rem;
-  bottom: 7rem;
+  right: -5.2rem;
+  bottom: 5.6rem;
   color: var(--pink);
   transform: rotate(10deg);
 }
@@ -375,13 +373,11 @@
   transform: translateX(-50%) rotate(-6deg);
 }
 
-/* pin attached to the note */
+/* pin base */
 .board-note::after,
 .board-clipping::after {
   content: '';
   position: absolute;
-  top: 0.45rem;
-  right: 0.55rem;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -393,28 +389,28 @@
 /* Sticky note positions */
 
 .note-colour {
-  top: -2.4rem;
+  top: -1.2rem;
   right: 13.8rem;
   background: #aaf2ff;
   transform: rotate(2deg);
 }
 
 .note-inspo {
-  top: 8.2rem;
-  left: -5.8rem;
+  top: 9rem;
+  left: -4.7rem;
   background: #ffc3e7;
   transform: rotate(-7deg);
 }
 
 .note-usability {
-  top: 16rem;
-  right: -5.7rem;
+  top: 17rem;
+  right: -5rem;
   background: #f5e7bd;
   transform: rotate(-4deg);
 }
 
 .note-quest {
-  bottom: -3.9rem;
+  bottom: -1.6rem;
   left: 34rem;
   background: #fff06a;
   transform: rotate(-3deg);
@@ -430,7 +426,7 @@
   border-color: #7a003c;
 }
 
-/* Clippings, now visible and not trapped behind the hero */
+/* Clippings */
 
 .clipping-map {
   top: 2.7rem;
@@ -445,8 +441,8 @@
 }
 
 .clipping-ticket {
-  top: 1.5rem;
-  left: 50%;
+  top: 2.4rem;
+  left: 53%;
   width: 8rem;
   min-height: 3.8rem;
   z-index: 60;
@@ -470,14 +466,69 @@
 
 .clipping-list {
   top: 22.5rem;
-  left: -6.4rem;
+  left: -4.8rem;
   width: 9rem;
   z-index: 60;
   background: #d6ff8c;
   transform: rotate(-5deg);
 }
 
-/* tape angle variations */
+/* Stickers */
+
+.sticker-build {
+  top: 5rem;
+  left: 1.8rem;
+  background: var(--orange);
+  transform: rotate(7deg);
+}
+
+.sticker-stack {
+  top: 8.8rem;
+  right: 4rem;
+  background: var(--acid);
+  transform: rotate(-6deg);
+}
+
+.sticker-bug {
+  right: 4.4rem;
+  bottom: 2.2rem;
+  color: white;
+  background: var(--red);
+  transform: rotate(7deg);
+}
+
+/* Pin placement, visually attached to corkboard */
+
+.note-colour::after {
+  top: 2.35rem;
+  right: 0.55rem;
+}
+
+.note-inspo::after {
+  top: 0.55rem;
+  right: 0.55rem;
+}
+
+.note-usability::after {
+  top: 0.55rem;
+  left: 0.65rem;
+  right: auto;
+}
+
+.note-quest::after {
+  top: 0.55rem;
+  right: 0.65rem;
+}
+
+.clipping-map::after,
+.clipping-ticket::after,
+.clipping-photo::after,
+.clipping-list::after {
+  top: 0.65rem;
+  right: 0.65rem;
+}
+
+/* Tape angle variations */
 
 .note-colour::before {
   transform: translateX(-50%) rotate(5deg);
@@ -567,7 +618,7 @@
 
 .sticker-side {
   left: -2.8rem;
-  bottom: -2.4rem;
+  bottom: -0.7rem;
   background: var(--cyan);
   transform: rotate(-4deg);
 }
@@ -578,6 +629,11 @@
   color: white;
   background: var(--red);
   transform: rotate(7deg);
+}
+
+.sticker-bug::before {
+  background: #ffd400;
+  border-color: #856c00;
 }
 
 /* Terminal */
@@ -625,8 +681,8 @@
 }
 
 .scribble-main {
-  left: 1.1rem;
-  bottom: 0.25rem;
+  left: 1.4rem;
+  bottom: 0.8rem;
   transform: rotate(-2deg);
 }
 
