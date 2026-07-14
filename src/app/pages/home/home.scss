@@ -320,7 +320,7 @@
 .board-note,
 .board-clipping {
   position: absolute;
-  z-index: 58;
+  z-index: var(--z, 58);
   color: var(--ink);
   line-height: 1.25;
   border: 2px solid rgba(10, 10, 10, 0.28);
@@ -359,6 +359,7 @@
 }
 
 /* tape attached to the note */
+
 .board-note::before,
 .board-clipping::before {
   content: '';
@@ -374,6 +375,7 @@
 }
 
 /* pin base */
+
 .board-note::after,
 .board-clipping::after {
   content: '';
@@ -386,34 +388,140 @@
   box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
 }
 
-/* Sticky note positions */
+/* Essential board stickers */
+
+.dev-sticker {
+  position: absolute;
+  z-index: var(--z, 55);
+  max-width: 15rem;
+  padding: 0.78rem;
+  color: var(--ink);
+  font-weight: 950;
+  line-height: 1.2;
+  background: var(--paper);
+  border: 4px solid var(--border);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.dev-sticker::before {
+  content: '';
+  position: absolute;
+  top: 0.35rem;
+  right: 0.45rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2px solid #0c3970;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.dev-sticker span {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
+.sticker-bug::before {
+  background: #ffd400;
+  border-color: #856c00;
+}
+
+/* Terminal */
+
+.terminal-fragment {
+  position: absolute;
+  z-index: var(--z, 24);
+  width: 16rem;
+  padding: 0.85rem;
+  color: var(--toxic);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: #070707;
+  border: 4px solid var(--border);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.terminal-fragment::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid #7a1010;
+}
+
+.terminal-fragment p {
+  margin: 0 0 0.35rem;
+}
+
+/* ========================================================= */
+/* MANUAL ITEM PLACEMENT ONLY                               */
+/* The board itself is not changed here.                     */
+/* Change only --x, --y, --rot, and --z.                     */
+/* --x = left/right                                          */
+/* --y = up/down                                             */
+/* --rot = rotation                                          */
+/* --z under 40 = behind the hero card                       */
+/* --z over 40 = above the hero card                         */
+/* ========================================================= */
+
+.board-note,
+.board-clipping,
+.dev-sticker,
+.terminal-fragment,
+.warning-strip,
+.scribble {
+  top: var(--y);
+  left: var(--x);
+  right: auto;
+  bottom: auto;
+  z-index: var(--z, 55);
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* Sticky notes */
 
 .note-colour {
-  top: -1.2rem;
-  right: 13.8rem;
+  --x: 57rem;
+  --y: 0.8rem;
+  --rot: 2deg;
+  --z: 58;
+
   background: #aaf2ff;
-  transform: rotate(2deg);
 }
 
 .note-inspo {
-  top: 9rem;
-  left: -4.7rem;
+  --x: 2rem;
+  --y: 9.7rem;
+  --rot: -7deg;
+  --z: 58;
+
   background: #ffc3e7;
-  transform: rotate(-7deg);
 }
 
 .note-usability {
-  top: 17rem;
-  right: -5rem;
+  --x: 72rem;
+  --y: 18.7rem;
+  --rot: -4deg;
+  --z: 58;
+
   background: #f5e7bd;
-  transform: rotate(-4deg);
 }
 
 .note-quest {
-  bottom: -1.6rem;
-  left: 34rem;
+  --x: 46rem;
+  --y: 48rem;
+  --rot: -3deg;
+  --z: 58;
+
   background: #fff06a;
-  transform: rotate(-3deg);
 }
 
 .note-quest::after {
@@ -429,72 +537,123 @@
 /* Clippings */
 
 .clipping-map {
-  top: 2.7rem;
-  left: 23rem;
+  --x: 30rem;
+  --y: 3rem;
+  --rot: -8deg;
+  --z: 36;
+
   width: 11rem;
   min-height: 4rem;
-  z-index: 57;
   background:
     linear-gradient(90deg, rgba(0, 217, 255, 0.16), transparent),
     #d8ecdf;
-  transform: rotate(-8deg);
 }
 
 .clipping-ticket {
-  top: 2.4rem;
-  left: 53%;
+  --x: 40rem;
+  --y: 2.8rem;
+  --rot: 5deg;
+  --z: 58;
+
   width: 8rem;
   min-height: 3.8rem;
-  z-index: 60;
   background: #fff2b6;
-  transform: translateX(-50%) rotate(5deg);
 }
 
 .clipping-photo {
-  right: 10rem;
-  bottom: 4.8rem;
+  --x: 62rem;
+  --y: 39.5rem;
+  --rot: 8deg;
+  --z: 36;
+
   width: 9rem;
   min-height: 6rem;
-  z-index: 56;
   color: white;
   background:
     linear-gradient(135deg, rgba(255, 0, 122, 0.55), rgba(0, 0, 0, 0.75)),
     #222;
-  transform: rotate(8deg);
   opacity: 0.92;
 }
 
 .clipping-list {
-  top: 22.5rem;
-  left: -4.8rem;
+  --x: 1.2rem;
+  --y: 24rem;
+  --rot: -5deg;
+  --z: 58;
+
   width: 9rem;
-  z-index: 60;
   background: #d6ff8c;
-  transform: rotate(-5deg);
 }
 
-/* Stickers */
+/* Dev stickers */
 
 .sticker-build {
-  top: 5rem;
-  left: 1.8rem;
+  --x: 5.4rem;
+  --y: 6.2rem;
+  --rot: 7deg;
+  --z: 55;
+
   background: var(--orange);
-  transform: rotate(7deg);
 }
 
 .sticker-stack {
-  top: 8.8rem;
-  right: 4rem;
+  --x: 69rem;
+  --y: 9.2rem;
+  --rot: -6deg;
+  --z: 55;
+
   background: var(--acid);
-  transform: rotate(-6deg);
+}
+
+.sticker-side {
+  --x: 1rem;
+  --y: 45.5rem;
+  --rot: -4deg;
+  --z: 55;
+
+  background: var(--cyan);
 }
 
 .sticker-bug {
-  right: 4.4rem;
-  bottom: 2.2rem;
+  --x: 68rem;
+  --y: 42.3rem;
+  --rot: 7deg;
+  --z: 55;
+
   color: white;
   background: var(--red);
-  transform: rotate(7deg);
+}
+
+/* Terminal, scribble, strips */
+
+.terminal-fragment {
+  --x: 2rem;
+  --y: 34rem;
+  --rot: -4deg;
+  --z: 24;
+}
+
+.scribble-main {
+  --x: 3rem;
+  --y: 47rem;
+  --rot: -2deg;
+  --z: 56;
+}
+
+.strip-one {
+  --x: 0.5rem;
+  --y: 4.5rem;
+  --rot: -8deg;
+  --z: 10;
+}
+
+.strip-two {
+  --x: 69rem;
+  --y: 40rem;
+  --rot: 10deg;
+  --z: 56;
+
+  color: var(--pink);
 }
 
 /* Pin placement, visually attached to corkboard */
@@ -564,111 +723,6 @@
 .clipping-list::before {
   left: 52%;
   transform: translateX(-50%) rotate(5deg);
-}
-
-/* Essential board stickers */
-
-.dev-sticker {
-  position: absolute;
-  z-index: 55;
-  max-width: 15rem;
-  padding: 0.78rem;
-  color: var(--ink);
-  font-weight: 950;
-  line-height: 1.2;
-  background: var(--paper);
-  border: 4px solid var(--border);
-  box-shadow: 7px 7px 0 var(--ink);
-}
-
-.dev-sticker::before {
-  content: '';
-  position: absolute;
-  top: 0.35rem;
-  right: 0.45rem;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #1976d2;
-  border: 2px solid #0c3970;
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
-}
-
-.dev-sticker span {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  text-transform: uppercase;
-}
-
-.sticker-build {
-  top: 3.6rem;
-  left: -5.4rem;
-  background: var(--orange);
-  transform: rotate(7deg);
-}
-
-.sticker-stack {
-  top: 8.5rem;
-  right: -5.2rem;
-  background: var(--acid);
-  transform: rotate(-6deg);
-}
-
-.sticker-side {
-  left: -2.8rem;
-  bottom: -0.7rem;
-  background: var(--cyan);
-  transform: rotate(-4deg);
-}
-
-.sticker-bug {
-  right: -2.4rem;
-  bottom: 2rem;
-  color: white;
-  background: var(--red);
-  transform: rotate(7deg);
-}
-
-.sticker-bug::before {
-  background: #ffd400;
-  border-color: #856c00;
-}
-
-/* Terminal */
-
-.terminal-fragment {
-  position: absolute;
-  z-index: 24;
-  left: -1.1rem;
-  bottom: 9.2rem;
-  width: 16rem;
-  padding: 0.85rem;
-  color: var(--toxic);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  background: #070707;
-  border: 4px solid var(--border);
-  box-shadow: 7px 7px 0 var(--ink);
-  transform: rotate(-4deg);
-}
-
-.terminal-fragment::before {
-  content: '';
-  position: absolute;
-  top: 0.45rem;
-  right: 0.55rem;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--red);
-  border: 2px solid #7a1010;
-}
-
-.terminal-fragment p {
-  margin: 0 0 0.35rem;
 }
 
 .scribble {
