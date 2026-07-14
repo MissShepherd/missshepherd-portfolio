@@ -129,7 +129,15 @@ textarea {
   box-shadow: 4px 4px 0 var(--pink);
 }
 
-/* Wall layer */
+/* ========================================================= */
+/* WALL BACKGROUND LAYER                                     */
+/* Manual placement system for background chaos.             */
+/* Move items with --x, --y, --rot, --z.                     */
+/* --x = left / right                                        */
+/* --y = up / down                                           */
+/* --rot = tilt                                              */
+/* --z = layer                                               */
+/* ========================================================= */
 
 .chaos-bg {
   position: fixed;
@@ -139,55 +147,80 @@ textarea {
   pointer-events: none;
 }
 
-/* Colour splats */
+.chaos-bg > * {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  right: auto;
+  bottom: auto;
+  z-index: var(--z, 1);
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* Keep app content above wall */
+
+.app-shell,
+.page-shell {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================================= */
+/* COLOUR SPLATS                                             */
+/* ========================================================= */
 
 .bg-splat {
-  position: absolute;
   display: block;
+  width: var(--size, 20rem);
+  height: var(--size, 20rem);
+  background: var(--splat-colour, var(--pink));
+  opacity: var(--opacity, 0.25);
+  border-radius: var(--blob-shape, 50%);
   mix-blend-mode: multiply;
 }
 
 .bg-splat.one {
-  width: 20rem;
-  height: 20rem;
-  top: 8rem;
-  left: -8rem;
-  background: var(--pink);
-  opacity: 0.28;
-  border-radius: 49% 51% 38% 62% / 49% 35% 65% 51%;
-  transform: rotate(18deg);
+  --x: -8rem;
+  --y: 8rem;
+  --z: 1;
+  --rot: 18deg;
+  --size: 20rem;
+  --opacity: 0.28;
+  --splat-colour: var(--pink);
+  --blob-shape: 49% 51% 38% 62% / 49% 35% 65% 51%;
 }
 
 .bg-splat.two {
-  width: 24rem;
-  height: 24rem;
-  right: -9rem;
-  top: 14rem;
-  background: var(--cyan);
-  opacity: 0.22;
-  border-radius: 59% 41% 64% 36% / 41% 57% 43% 59%;
-  transform: rotate(-12deg);
+  --x: calc(100vw - 15rem);
+  --y: 14rem;
+  --z: 1;
+  --rot: -12deg;
+  --size: 24rem;
+  --opacity: 0.22;
+  --splat-colour: var(--cyan);
+  --blob-shape: 59% 41% 64% 36% / 41% 57% 43% 59%;
 }
 
 .bg-splat.three {
-  width: 28rem;
-  height: 28rem;
-  left: 30%;
-  bottom: -12rem;
-  background: var(--acid);
-  opacity: 0.25;
-  border-radius: 43% 57% 53% 47% / 59% 42% 58% 41%;
+  --x: 30vw;
+  --y: calc(100vh - 16rem);
+  --z: 1;
+  --rot: 0deg;
+  --size: 28rem;
+  --opacity: 0.25;
+  --splat-colour: var(--acid);
+  --blob-shape: 43% 57% 53% 47% / 59% 42% 58% 41%;
 }
 
-/* Wall scribbles */
+/* ========================================================= */
+/* WALL SCRIBBLES                                            */
+/* ========================================================= */
 
 .bg-scribble {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
   color: rgba(5, 5, 5, 0.45);
   font-weight: 900;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .bg-scribble.marker {
@@ -197,19 +230,19 @@ textarea {
 
 .bg-scribble.hand {
   font-family: var(--font-hand);
-  font-size: 1.35rem;
+  font-size: var(--fs, 1.35rem);
   font-weight: 700;
 }
 
 .bg-scribble.note {
   font-family: var(--font-note);
-  font-size: 0.95rem;
+  font-size: var(--fs, 0.95rem);
   font-weight: 700;
 }
 
 .bg-scribble.mono {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--fs, 0.85rem);
 }
 
 .bg-scribble.pink {
@@ -226,63 +259,69 @@ textarea {
 }
 
 .bg-scribble.one {
-  top: 1rem;
-  left: 0.8rem;
-  font-size: 1rem;
-  transform: rotate(-2deg);
+  --x: 0.8rem;
+  --y: 1rem;
+  --rot: -2deg;
+  --z: 3;
+  --fs: 1rem;
 }
 
 .bg-scribble.two {
-  top: 5.8rem;
-  right: 9.2rem;
-  font-size: 1.1rem;
-  transform: rotate(-9deg);
+  --x: calc(100vw - 14rem);
+  --y: 5.8rem;
+  --rot: -9deg;
+  --z: 3;
+  --fs: 1.1rem;
 }
 
 .bg-scribble.three {
-  top: 20rem;
-  left: 6rem;
-  font-size: 1.25rem;
-  transform: rotate(-6deg);
+  --x: 2.5rem;
+  --y: 19.5rem;
+  --rot: -6deg;
+  --z: 3;
+  --fs: 1.25rem;
 }
 
 .bg-scribble.four {
-  bottom: 9.6rem;
-  right: 12.8rem;
-  font-size: 1.75rem;
-  transform: rotate(5deg);
+  --x: calc(100vw - 13rem);
+  --y: calc(100vh - 18rem);
+  --rot: 5deg;
+  --z: 3;
+  --fs: 1.75rem;
 }
 
 .bg-scribble.six {
-  bottom: 2.4rem;
-  right: 17rem;
-  font-size: 0.95rem;
-  transform: rotate(-5deg);
+  --x: calc(100vw - 13rem);
+  --y: calc(100vh - 28rem);
+  --rot: -5deg;
+  --z: 3;
+  --fs: 0.95rem;
 }
 
 .bg-scribble.seven {
-  top: 14rem;
-  left: 18rem;
-  font-size: 1.8rem;
-  transform: rotate(8deg);
+  --x: 18rem;
+  --y: 14rem;
+  --rot: 8deg;
+  --z: 3;
+  --fs: 1.8rem;
 }
 
-/* Wall sticky notes */
+/* ========================================================= */
+/* WALL STICKY NOTES                                         */
+/* ========================================================= */
 
 .wall-sticky {
-  position: absolute;
-  z-index: 4;
-  width: 10rem;
-  min-height: 7rem;
+  width: var(--w, 10rem);
+  min-height: var(--h, 7rem);
   padding: 0.85rem 0.9rem;
   color: rgba(10, 10, 10, 0.78);
   font-family: var(--font-note);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.35;
+  background: var(--note-bg, #fff06a);
   border: 2px solid rgba(10, 10, 10, 0.28);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.16);
-  pointer-events: none;
   filter: contrast(1.05) saturate(1.08);
 }
 
@@ -306,7 +345,7 @@ textarea {
   height: 1rem;
   background: rgba(255, 245, 170, 0.55);
   border: 1px solid rgba(10, 10, 10, 0.18);
-  transform: translateX(-50%) rotate(-6deg);
+  transform: translateX(-50%) rotate(var(--tape-rot, -6deg));
 }
 
 .wall-sticky::after {
@@ -321,79 +360,89 @@ textarea {
 
 .wall-loot-arrow {
   position: absolute;
-  top: 2.7rem;
-  right: -4.8rem;
+  top: var(--loot-y, 2.7rem);
+  left: var(--loot-x, 9rem);
   z-index: 10;
   color: rgba(5, 5, 5, 0.5);
   font-family: var(--font-hand);
   font-size: 1.15rem;
   font-weight: 700;
   white-space: nowrap;
-  transform: rotate(-6deg);
+  transform: rotate(var(--loot-rot, -6deg));
 }
 
 .sticky-wall-1 {
-  top: 6.5rem;
-  left: 2.5rem;
-  background: #fff06a;
-  transform: rotate(-7deg);
+  --x: 2.5rem;
+  --y: 6.5rem;
+  --rot: -7deg;
+  --z: 4;
+  --w: 10rem;
+  --h: 7rem;
+  --note-bg: #fff06a;
+
+  --loot-x: 9rem;
+  --loot-y: 2.7rem;
+  --loot-rot: -6deg;
 }
 
 .sticky-wall-2 {
-  top: 25rem;
-  left: 5rem;
-  background: #ff9dcc;
-  transform: rotate(5deg);
-}
-
-.sticky-wall-2::before {
-  transform: translateX(-50%) rotate(8deg);
+  --x: 3.5rem;
+  --y: 25rem;
+  --rot: 5deg;
+  --z: 4;
+  --w: 10rem;
+  --h: 7rem;
+  --note-bg: #ff9dcc;
+  --tape-rot: 8deg;
 }
 
 .sticky-wall-3 {
-  top: 8.6rem;
-  right: 4.8rem;
-  width: 9rem;
-  min-height: 5rem;
-  background: #9eefff;
-  transform: rotate(7deg);
+  --x: calc(100vw - 13rem);
+  --y: 8.6rem;
+  --rot: 7deg;
+  --z: 4;
+  --w: 9rem;
+  --h: 5rem;
+  --note-bg: #9eefff;
 }
 
 .sticky-wall-4 {
-  bottom: 4.6rem;
-  right: 1.4rem;
-  background: #cfff7a;
-  transform: rotate(-5deg);
-}
-
-.sticky-wall-4::before {
-  transform: translateX(-50%) rotate(-10deg);
+  --x: calc(100vw - 12rem);
+  --y: calc(100vh - 12rem);
+  --rot: -5deg;
+  --z: 4;
+  --w: 10rem;
+  --h: 7rem;
+  --note-bg: #cfff7a;
+  --tape-rot: -10deg;
 }
 
 .sticky-wall-5 {
-  bottom: 7rem;
-  left: 10rem;
-  width: 9.5rem;
-  min-height: 5.5rem;
-  background: #ffbd73;
-  transform: rotate(6deg);
+  --x: 4rem;
+  --y: calc(100vh - 17rem);
+  --rot: 6deg;
+  --z: 4;
+  --w: 9.5rem;
+  --h: 5.5rem;
+  --note-bg: #ffbd73;
 }
 
-/* Small wall scraps */
+/* ========================================================= */
+/* SMALL WALL SCRAPS                                         */
+/* ========================================================= */
 
 .wall-mini-note {
-  position: absolute;
-  z-index: 4;
+  width: fit-content;
   padding: 0.4rem 0.65rem;
   color: rgba(10, 10, 10, 0.72);
   font-family: var(--font-hand);
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.1;
+  white-space: nowrap;
   background: rgba(255, 250, 210, 0.8);
   border: 2px solid rgba(10, 10, 10, 0.22);
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.14);
-  pointer-events: none;
   filter: contrast(1.05) saturate(1.08);
 }
 
@@ -406,7 +455,7 @@ textarea {
   height: 1rem;
   background: rgba(255, 245, 170, 0.55);
   border: 1px solid rgba(10, 10, 10, 0.18);
-  transform: translateX(-50%) rotate(-6deg);
+  transform: translateX(-50%) rotate(var(--tape-rot, -6deg));
 }
 
 .wall-mini-note::after {
@@ -420,18 +469,170 @@ textarea {
 }
 
 .mini-wall-1 {
-  top: 16.9rem;
-  right: 5.7rem;
-  transform: rotate(-4deg);
+  --x: calc(100vw - 14.7rem);
+  --y: 16.9rem;
+  --rot: -4deg;
+  --z: 4;
 }
 
 .mini-wall-2 {
-  bottom: 3.2rem;
-  left: 4.8rem;
-  transform: rotate(7deg);
+  --x: 2.5rem;
+  --y: calc(100vh - 5rem);
+  --rot: 7deg;
+  --z: 4;
 }
 
-/* Mini tags for board or sections */
+/* ========================================================= */
+/* WALL DECORATIONS                                          */
+/* ========================================================= */
+
+.wall-deco {
+  color: var(--deco-colour, rgba(10, 10, 10, 0.5));
+  font-size: var(--fs, 1.9rem);
+  line-height: 1;
+  user-select: none;
+  opacity: var(--opacity, 0.78);
+}
+
+.wall-deco.star {
+  font-family: var(--font-marker);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wall-deco.spark {
+  font-family: var(--font-note);
+}
+
+.wall-deco.doodle {
+  font-family: var(--font-hand);
+  font-weight: 700;
+}
+
+.wall-deco.medium {
+  --fs: 1.9rem;
+}
+
+.wall-deco.big {
+  --fs: 3.4rem;
+  --opacity: 0.9;
+}
+
+/* Left wall cluster */
+
+.deco-star-1 {
+  --x: 11.8rem;
+  --y: 13.5rem;
+  --rot: -10deg;
+  --z: 2;
+  --deco-colour: #ffd400;
+}
+
+.deco-star-2 {
+  --x: 15rem;
+  --y: 3rem;
+  --rot: 8deg;
+  --z: 2;
+  --deco-colour: #d5ff00;
+}
+
+.deco-cross-1 {
+  --x: 107rem;
+  --y: 25rem;
+  --rot: -10deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.42);
+}
+
+.deco-heart-1 {
+  --x: 2rem;
+  --y: 26.3rem;
+  --rot: -8deg;
+  --z: 2;
+  --deco-colour: rgba(255, 0, 122, 0.62);
+}
+
+/* Mid-left / lower-left */
+
+.deco-code-1 {
+  --x: 7rem;
+  --y: calc(100vh - 23rem);
+  --rot: -8deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.45);
+}
+
+.deco-spark-2 {
+  --x: 110rem;
+  --y: calc(100vh - 22rem);
+  --rot: -6deg;
+  --z: 2;
+  --deco-colour: #1100ff;
+}
+
+.deco-circle-2 {
+  --x: 12rem;
+  --y: calc(100vh - 7rem);
+  --rot: 7deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.35);
+}
+
+/* Top-right wall */
+
+.deco-star-3 {
+  --x: calc(100vw - 113rem);
+  --y: 15rem;
+  --rot: -12deg;
+  --z: 2;
+  --deco-colour: #ffb800;
+}
+
+.deco-bolt-1 {
+  --x: calc(100vw - 15rem);
+  --y: 3rem;
+  --rot: 6deg;
+  --z: 2;
+  --deco-colour: #ff8a00;
+}
+
+.deco-xp-1 {
+  --x: calc(100vw - 24rem);
+  --y: 3rem;
+  --rot: 6deg;
+  --z: 2;
+  --deco-colour: rgba(255, 90, 0, 0.82);
+}
+
+/* Right wall */
+
+.deco-spark-1 {
+  --x: calc(100vw - 7rem);
+  --y: 22.4rem;
+  --rot: 8deg;
+  --z: 2;
+  --deco-colour: #00ff6a;
+}
+
+.deco-circle-1 {
+  --x: calc(100vw - 7rem);
+  --y: 31rem;
+  --rot: -4deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.28);
+}
+
+.deco-cross-2 {
+  --x: calc(100vw - 15rem);
+  --y: calc(100vh - 9rem);
+  --rot: 12deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.42);
+}
+
+/* ========================================================= */
+/* MINI TAGS FOR BOARD OR SECTIONS                           */
+/* Keep only if still used elsewhere.                        */
+/* ========================================================= */
 
 .mini-tag {
   position: absolute;
@@ -474,13 +675,15 @@ textarea {
   transform: rotate(8deg);
 }
 
-/* Mobile cleanup */
+/* ========================================================= */
+/* MOBILE WALL CLEANUP                                       */
+/* ========================================================= */
 
 @media (max-width: 900px) {
   .bg-splat.one,
   .bg-splat.two,
   .bg-splat.three {
-    opacity: 0.14;
+    --opacity: 0.14;
   }
 
   .wall-sticky,
@@ -495,140 +698,42 @@ textarea {
   .bg-scribble.seven {
     display: none;
   }
+
+  .bg-scribble.one {
+    --x: 0.8rem;
+    --y: 0.8rem;
+    --fs: 0.75rem;
+  }
+
+  .bg-scribble.two {
+    --x: calc(100vw - 10rem);
+    --y: 5rem;
+    --fs: 0.95rem;
+  }
 }
 
-/* Wall decorations */
+@media (max-width: 620px) {
+  .chaos-bg {
+    opacity: 0.5;
+  }
 
-.wall-deco {
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  line-height: 1;
-  user-select: none;
-}
+  .bg-splat.one {
+    --x: -9rem;
+    --y: 7rem;
+    --size: 14rem;
+  }
 
-.wall-deco.star {
-  font-family: var(--font-marker);
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
-}
+  .bg-splat.two {
+    --x: calc(100vw - 8rem);
+    --y: 18rem;
+    --size: 13rem;
+  }
 
-.wall-deco.spark {
-  font-family: var(--font-note);
-}
+  .bg-splat.three {
+    display: none;
+  }
 
-.wall-deco.doodle {
-  color: rgba(10, 10, 10, 0.5);
-  font-family: var(--font-hand);
-  font-weight: 700;
-}
-
-/* Bigger overall size system */
-
-.wall-deco.medium {
-  font-size: 1.9rem;
-  opacity: 0.78;
-}
-
-.wall-deco.big {
-  font-size: 3.4rem;
-  opacity: 0.9;
-}
-
-/* Left wall cluster, more spread out */
-
-.deco-star-1 {
-  top: 13.5rem;
-  left: 11.8rem;
-  color: #ffd400;
-  transform: rotate(-10deg);
-}
-
-.deco-star-2 {
-  top: 16.9rem;
-  left: 19.2rem;
-  color: #d5ff00;
-  transform: rotate(8deg);
-}
-
-.deco-cross-1 {
-  top: 18rem;
-  left: 24.2rem;
-  color: rgba(10, 10, 10, 0.42);
-  transform: rotate(-10deg);
-}
-
-.deco-heart-1 {
-  top: 26.3rem;
-  left: 2.8rem;
-  color: rgba(255, 0, 122, 0.62);
-  transform: rotate(-8deg);
-}
-
-/* Mid-left / lower-left */
-
-.deco-code-1 {
-  bottom: 14rem;
-  left: 19.8rem;
-  color: rgba(10, 10, 10, 0.45);
-  transform: rotate(-8deg);
-}
-
-.deco-spark-2 {
-  bottom: 10.8rem;
-  left: 30.6rem;
-  color: #00d9ff;
-  transform: rotate(-6deg);
-}
-
-.deco-circle-2 {
-  bottom: 4.2rem;
-  left: 18.8rem;
-  color: rgba(10, 10, 10, 0.35);
-  transform: rotate(7deg);
-}
-
-/* Top-right wall */
-
-.deco-star-3 {
-  top: 10.2rem;
-  right: 20.2rem;
-  color: #ffb800;
-  transform: rotate(-12deg);
-}
-
-.deco-bolt-1 {
-  top: 8.4rem;
-  right: 28.2rem;
-  color: #ff8a00;
-  transform: rotate(6deg);
-}
-
-.deco-xp-1 {
-  top: 14.8rem;
-  right: 18.8rem;
-  color: rgba(255, 90, 0, 0.82);
-  transform: rotate(6deg);
-}
-
-/* Right wall */
-
-.deco-spark-1 {
-  top: 22.4rem;
-  right: 6.4rem;
-  color: #00d9ff;
-  transform: rotate(8deg);
-}
-
-.deco-circle-1 {
-  top: 31rem;
-  right: 6.2rem;
-  color: rgba(10, 10, 10, 0.28);
-  transform: rotate(-4deg);
-}
-
-.deco-cross-2 {
-  bottom: 8.4rem;
-  right: 26.4rem;
-  color: rgba(10, 10, 10, 0.42);
-  transform: rotate(12deg);
+  .bg-scribble.two {
+    display: none;
+  }
 }
