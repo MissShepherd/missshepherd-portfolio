@@ -678,7 +678,7 @@ textarea {
 /* Extra wall scribbles */
 
 .bg-scribble.seven {
-  --x: 1.4rem;
+  --x: 98rem;
   --y: 34rem;
   --rot: -7deg;
   --z: 3;
@@ -686,24 +686,24 @@ textarea {
 }
 
 .bg-scribble.eight {
-  --x: 8rem;
-  --y: calc(100vh - 18rem);
+  --x: 40rem;
+  --y: calc(100vh - 50.8rem);
   --rot: 4deg;
   --z: 3;
   --fs: 0.8rem;
 }
 
 .bg-scribble.nine {
-  --x: calc(100vw - 18rem);
-  --y: 32rem;
+  --x: calc(100vw - 12rem);
+  --y: 55rem;
   --rot: -5deg;
   --z: 3;
   --fs: 0.95rem;
 }
 
 .bg-scribble.ten {
-  --x: calc(100vw - 19rem);
-  --y: calc(100vh - 18rem);
+  --x: calc(100vw - 104.5rem);
+  --y: calc(100vh - 33rem);
   --rot: 6deg;
   --z: 3;
   --fs: 1.05rem;
@@ -712,56 +712,56 @@ textarea {
 /* Extra wall decorations */
 
 .deco-star-4 {
-  --x: 5rem;
-  --y: 4.5rem;
+  --x: 18rem;
+  --y: 30rem;
   --rot: -12deg;
   --z: 2;
   --deco-colour: var(--acid);
 }
 
 .deco-star-5 {
-  --x: calc(100vw - 6rem);
-  --y: 4.3rem;
+  --x: calc(100vw - 20rem);
+  --y: 45rem;
   --rot: 10deg;
   --z: 2;
   --deco-colour: var(--orange);
 }
 
 .deco-spark-3 {
-  --x: 1.2rem;
-  --y: calc(100vh - 21rem);
+  --x: 25rem;
+  --y: calc(100vh - 10rem);
   --rot: 8deg;
   --z: 2;
   --deco-colour: var(--cyan);
 }
 
 .deco-spark-4 {
-  --x: calc(100vw - 3.6rem);
-  --y: calc(100vh - 21rem);
+  --x: calc(100vw - 22rem);
+  --y: calc(100vh - 37rem);
   --rot: -8deg;
   --z: 2;
   --deco-colour: var(--purple);
 }
 
 .deco-arrow-1 {
-  --x: 2.8rem;
-  --y: 38rem;
+  --x: 20rem;
+  --y: 50rem;
   --rot: -15deg;
   --z: 2;
   --deco-colour: rgba(10, 10, 10, 0.45);
 }
 
 .deco-arrow-2 {
-  --x: calc(100vw - 7rem);
-  --y: 36rem;
+  --x: calc(100vw - 22.5rem);
+  --y: 8rem;
   --rot: 8deg;
   --z: 2;
   --deco-colour: rgba(10, 10, 10, 0.45);
 }
 
 .deco-bracket-1 {
-  --x: 4.5rem;
-  --y: calc(100vh - 25rem);
+  --x: 18rem;
+  --y: calc(100vh - 40rem);
   --rot: -6deg;
   --z: 2;
   --fs: 1.6rem;
@@ -769,8 +769,8 @@ textarea {
 }
 
 .deco-code-2 {
-  --x: calc(100vw - 7.5rem);
-  --y: calc(100vh - 26rem);
+  --x: calc(100vw - 20rem);
+  --y: calc(100vh - 5rem);
   --rot: 9deg;
   --z: 2;
   --fs: 1.45rem;
@@ -778,8 +778,8 @@ textarea {
 }
 
 .deco-save-1 {
-  --x: 1.8rem;
-  --y: calc(100vh - 9rem);
+  --x: 20rem;
+  --y: calc(100vh - 49.5rem);
   --rot: -4deg;
   --z: 2;
   --fs: 1.15rem;
@@ -787,8 +787,8 @@ textarea {
 }
 
 .deco-dot-1 {
-  --x: calc(100vw - 6rem);
-  --y: calc(100vh - 10rem);
+  --x: calc(100vw - 50rem);
+  --y: calc(100vh - 50rem);
   --rot: 5deg;
   --z: 2;
   --fs: 1.4rem;
@@ -798,23 +798,16 @@ textarea {
 /* Extra mini wall notes */
 
 .mini-wall-3 {
-  --x: 2.2rem;
-  --y: calc(100vh - 15rem);
-  --rot: -5deg;
+  --x: 16rem;
+  --y: calc(100vh - 22rem);
+  --rot: -10deg;
   --z: 4;
 }
 
 .mini-wall-4 {
-  --x: calc(100vw - 13rem);
-  --y: calc(100vh - 15rem);
-  --rot: 6deg;
-  --z: 4;
-}
-
-.mini-wall-5 {
-  --x: calc(100vw - 15rem);
-  --y: 24rem;
-  --rot: -4deg;
+  --x: calc(100vw - 9rem);
+  --y: calc(100vh - 55rem);
+  --rot: 15deg;
   --z: 4;
 }
 
