@@ -1,0 +1,462 @@
+.skill-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Hero */
+
+.skill-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  gap: 0.75rem 2rem;
+  align-items: end;
+  padding: 1.4rem 2rem;
+  border: 5px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(213, 255, 0, 0.18), transparent 38%),
+    var(--paper);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.skill-hero::after {
+  content: 'choose your build';
+  position: absolute;
+  right: 1.5rem;
+  bottom: -1rem;
+  padding: 0.35rem 0.65rem;
+  color: var(--acid);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--ink);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--pink);
+  transform: rotate(3deg);
+}
+
+.skill-hero .kicker {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.skill-hero .page-title {
+  grid-column: 1;
+  margin: 0;
+  font-size: clamp(3rem, 5.8vw, 5.2rem);
+  line-height: 0.82;
+}
+
+.skill-hero .page-title span {
+  display: block;
+  color: var(--pink);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow:
+    3px 3px 0 var(--acid),
+    6px 6px 0 var(--ink);
+}
+
+.skill-hero p:last-child {
+  grid-column: 2;
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+/* Tree board */
+
+.tree-board {
+  position: relative;
+  padding: 2rem 2.5rem 2.5rem;
+  border: 6px solid var(--border);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 0, 122, 0.14), transparent 12rem),
+    radial-gradient(circle at 85% 15%, rgba(0, 217, 255, 0.18), transparent 14rem),
+    repeating-linear-gradient(
+      -12deg,
+      rgba(0, 0, 0, 0.035) 0,
+      rgba(0, 0, 0, 0.035) 2px,
+      transparent 2px,
+      transparent 10px
+    ),
+    #b98958;
+  box-shadow:
+    0 0 0 3px #3f2817 inset,
+    14px 14px 0 var(--ink);
+  overflow: hidden;
+}
+
+.tree-board::before {
+  content: '';
+  position: absolute;
+  inset: 1rem;
+  border: 2px dashed rgba(0, 0, 0, 0.32);
+  pointer-events: none;
+}
+
+.tree-board-label {
+  position: absolute;
+  top: 1rem;
+  left: 1.3rem;
+  z-index: 8;
+  padding: 0.35rem 0.65rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--acid);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-3deg);
+}
+
+/* Root node */
+
+.skill-root {
+  position: relative;
+  z-index: 6;
+  width: min(520px, 100%);
+  margin: 0 auto;
+  padding: 1.15rem 1.3rem;
+  text-align: center;
+  background: var(--paper);
+  border: 5px solid var(--border);
+  box-shadow: 9px 9px 0 var(--ink);
+  transform: rotate(-1deg);
+}
+
+.skill-root::before,
+.skill-root::after {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid #7a1010;
+}
+
+.skill-root::before {
+  left: 0.8rem;
+}
+
+.skill-root::after {
+  right: 0.8rem;
+}
+
+.node-type {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  padding: 0.35rem 0.55rem;
+  color: var(--acid);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--ink);
+}
+
+.skill-root h2 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.skill-root p {
+  max-width: 430px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+/* Connected tree lines */
+
+.tree-trunk {
+  position: relative;
+  z-index: 2;
+  width: 6px;
+  height: 2.8rem;
+  margin: 0 auto;
+  background: var(--ink);
+}
+
+.tree-branches {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  padding-top: 2.8rem;
+}
+
+/* horizontal connector */
+.tree-branches::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 11%;
+  right: 11%;
+  height: 6px;
+  background: var(--ink);
+}
+
+/* vertical connector for each branch */
+.skill-branch::before {
+  content: '';
+  position: absolute;
+  top: -2.8rem;
+  left: 50%;
+  z-index: -1;
+  width: 6px;
+  height: 2.8rem;
+  background: var(--ink);
+  transform: translateX(-50%);
+}
+
+/* Branch cards */
+
+.skill-branch {
+  position: relative;
+  z-index: 5;
+  padding: 1.1rem;
+  background: var(--paper);
+  border: 5px solid var(--border);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.branch-pin {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.7rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid #7a1010;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+.skill-branch header span {
+  display: inline-flex;
+  margin-bottom: 0.65rem;
+  padding: 0.3rem 0.5rem;
+  color: var(--acid);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--ink);
+}
+
+.skill-branch h3 {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.skill-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  position: relative;
+  padding: 0.8rem 0.85rem 0.8rem 1.1rem;
+  background: rgba(255, 253, 248, 0.74);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.skill-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.95rem;
+  left: -0.55rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--acid);
+  border: 3px solid var(--border);
+}
+
+.skill-list li.training::before {
+  background: var(--cyan);
+}
+
+.skill-list li strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.skill-list li small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* Branch colours */
+
+.branch-main {
+  background:
+    radial-gradient(circle at top right, rgba(213, 255, 0, 0.75), transparent 7rem),
+    var(--paper);
+  transform: rotate(-1.2deg);
+}
+
+.branch-ui {
+  background:
+    radial-gradient(circle at bottom left, rgba(255, 0, 122, 0.35), transparent 8rem),
+    var(--paper-2);
+  transform: rotate(1deg);
+}
+
+.branch-tools {
+  background:
+    radial-gradient(circle at top left, rgba(0, 217, 255, 0.45), transparent 8rem),
+    var(--paper);
+  transform: rotate(-0.6deg);
+}
+
+.branch-creative {
+  background:
+    radial-gradient(circle at bottom right, rgba(255, 90, 0, 0.35), transparent 8rem),
+    var(--paper-2);
+  transform: rotate(1.1deg);
+}
+
+/* Responsive */
+
+@media (max-width: 1120px) {
+  .tree-branches {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .tree-branches::before {
+    display: none;
+  }
+
+  .skill-branch::before {
+    top: -2.5rem;
+    height: 2.5rem;
+  }
+
+  .skill-branch {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .skill-page {
+    gap: 1.2rem;
+  }
+
+  .skill-hero {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  .skill-hero .kicker,
+  .skill-hero .page-title,
+  .skill-hero p:last-child {
+    grid-column: 1;
+  }
+
+  .skill-hero .page-title {
+    font-size: clamp(3rem, 17vw, 5rem);
+  }
+
+  .skill-hero::after {
+    right: 0.8rem;
+    bottom: -0.85rem;
+  }
+
+  .tree-board {
+    padding: 1.4rem;
+    border-width: 5px;
+    box-shadow:
+      0 0 0 3px #3f2817 inset,
+      8px 8px 0 var(--ink);
+  }
+
+  .tree-board::before {
+    inset: 0.65rem;
+  }
+
+  .tree-board-label {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+
+  .skill-root {
+    transform: none;
+  }
+
+  .skill-root::before,
+  .skill-root::after {
+    display: none;
+  }
+
+  .tree-trunk {
+    height: 2.5rem;
+  }
+
+  .tree-branches {
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .skill-branch::before {
+    top: -2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .skill-hero {
+    padding: 1.1rem;
+  }
+
+  .tree-board {
+    padding: 1rem;
+  }
+
+  .skill-root,
+  .skill-branch {
+    padding: 1rem;
+  }
+
+  .skill-list li {
+    padding: 0.75rem;
+  }
+
+  .skill-list li::before {
+    display: none;
+  }
+}
