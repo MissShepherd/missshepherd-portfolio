@@ -675,6 +675,149 @@ textarea {
   transform: rotate(8deg);
 }
 
+/* Extra wall scribbles */
+
+.bg-scribble.seven {
+  --x: 1.4rem;
+  --y: 34rem;
+  --rot: -7deg;
+  --z: 3;
+  --fs: 1.05rem;
+}
+
+.bg-scribble.eight {
+  --x: 8rem;
+  --y: calc(100vh - 18rem);
+  --rot: 4deg;
+  --z: 3;
+  --fs: 0.8rem;
+}
+
+.bg-scribble.nine {
+  --x: calc(100vw - 18rem);
+  --y: 32rem;
+  --rot: -5deg;
+  --z: 3;
+  --fs: 0.95rem;
+}
+
+.bg-scribble.ten {
+  --x: calc(100vw - 19rem);
+  --y: calc(100vh - 18rem);
+  --rot: 6deg;
+  --z: 3;
+  --fs: 1.05rem;
+}
+
+/* Extra wall decorations */
+
+.deco-star-4 {
+  --x: 5rem;
+  --y: 4.5rem;
+  --rot: -12deg;
+  --z: 2;
+  --deco-colour: var(--acid);
+}
+
+.deco-star-5 {
+  --x: calc(100vw - 6rem);
+  --y: 4.3rem;
+  --rot: 10deg;
+  --z: 2;
+  --deco-colour: var(--orange);
+}
+
+.deco-spark-3 {
+  --x: 1.2rem;
+  --y: calc(100vh - 21rem);
+  --rot: 8deg;
+  --z: 2;
+  --deco-colour: var(--cyan);
+}
+
+.deco-spark-4 {
+  --x: calc(100vw - 3.6rem);
+  --y: calc(100vh - 21rem);
+  --rot: -8deg;
+  --z: 2;
+  --deco-colour: var(--purple);
+}
+
+.deco-arrow-1 {
+  --x: 2.8rem;
+  --y: 38rem;
+  --rot: -15deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.45);
+}
+
+.deco-arrow-2 {
+  --x: calc(100vw - 7rem);
+  --y: 36rem;
+  --rot: 8deg;
+  --z: 2;
+  --deco-colour: rgba(10, 10, 10, 0.45);
+}
+
+.deco-bracket-1 {
+  --x: 4.5rem;
+  --y: calc(100vh - 25rem);
+  --rot: -6deg;
+  --z: 2;
+  --fs: 1.6rem;
+  --deco-colour: rgba(10, 10, 10, 0.42);
+}
+
+.deco-code-2 {
+  --x: calc(100vw - 7.5rem);
+  --y: calc(100vh - 26rem);
+  --rot: 9deg;
+  --z: 2;
+  --fs: 1.45rem;
+  --deco-colour: rgba(255, 0, 122, 0.65);
+}
+
+.deco-save-1 {
+  --x: 1.8rem;
+  --y: calc(100vh - 9rem);
+  --rot: -4deg;
+  --z: 2;
+  --fs: 1.15rem;
+  --deco-colour: rgba(10, 10, 10, 0.5);
+}
+
+.deco-dot-1 {
+  --x: calc(100vw - 6rem);
+  --y: calc(100vh - 10rem);
+  --rot: 5deg;
+  --z: 2;
+  --fs: 1.4rem;
+  --deco-colour: rgba(10, 10, 10, 0.35);
+}
+
+/* Extra mini wall notes */
+
+.mini-wall-3 {
+  --x: 2.2rem;
+  --y: calc(100vh - 15rem);
+  --rot: -5deg;
+  --z: 4;
+}
+
+.mini-wall-4 {
+  --x: calc(100vw - 13rem);
+  --y: calc(100vh - 15rem);
+  --rot: 6deg;
+  --z: 4;
+}
+
+.mini-wall-5 {
+  --x: calc(100vw - 15rem);
+  --y: 24rem;
+  --rot: -4deg;
+  --z: 4;
+}
+
 /* ========================================================= */
 /* MOBILE WALL CLEANUP                                       */
 /* ========================================================= */
@@ -696,6 +839,16 @@ textarea {
   .bg-scribble.four,
   .bg-scribble.six,
   .bg-scribble.seven {
+    display: none;
+  }
+
+  .bg-scribble.seven,
+  .bg-scribble.eight,
+  .bg-scribble.nine,
+  .bg-scribble.ten,
+  .mini-wall-3,
+  .mini-wall-4,
+  .mini-wall-5 {
     display: none;
   }
 
