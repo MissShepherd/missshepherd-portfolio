@@ -7,7 +7,7 @@ The project combines structured, accessible web development with a colourful pin
 
 ## Live Portfolio
 
-[Visit the deployed portfolio](https://missshepherd-projects.vercel.app/)
+[Visit the deployed portfolio](https://missshepherd-portfolio.vercel.app/)
 
 ## About the Project
 
