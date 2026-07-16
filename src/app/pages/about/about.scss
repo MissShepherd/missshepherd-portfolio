@@ -234,7 +234,6 @@
   grid-column: 2 / -1;
   background: #fff06a;
   transform: rotate(1deg);
-  min-width: 0;
 }
 
 .about-note ul {
@@ -354,6 +353,12 @@
     grid-row: auto;
     transform: none;
   }
+
+  .about-card,
+  .about-note,
+  .about-timeline article {
+    min-width: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -363,7 +368,10 @@
 
   .about-hero {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
     padding: 1.25rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
   }
 
   .about-hero .kicker,
@@ -372,11 +380,28 @@
     grid-column: 1;
   }
 
+  .about-hero .kicker {
+    max-width: 100%;
+    font-size: 0.66rem;
+    overflow-wrap: break-word;
+  }
+
   .about-hero .page-title {
-    font-size: clamp(3.5rem, 17vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 16vw, 4.8rem);
+    line-height: 0.82;
+    overflow-wrap: break-word;
+  }
+
+  .about-hero .page-title span {
+    -webkit-text-stroke: 2px var(--ink);
+    text-shadow:
+      2px 2px 0 var(--acid),
+      4px 4px 0 var(--ink);
   }
 
   .about-hero p:last-child {
+    max-width: 100%;
     font-size: 0.95rem;
     line-height: 1.5;
   }
@@ -384,11 +409,15 @@
   .about-hero::after {
     right: 0.8rem;
     bottom: -0.85rem;
+    font-size: 0.62rem;
   }
 
   .about-board {
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 1.2rem;
     border-width: 5px;
+    overflow: hidden;
     box-shadow:
       0 0 0 3px #3f2817 inset,
       8px 8px 0 var(--ink);
@@ -403,13 +432,18 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: 0.75rem;
+    font-size: 0.62rem;
   }
 
   .about-card,
   .about-note,
   .about-timeline article {
+    width: 100%;
+    max-width: 100%;
     padding: 1rem;
+    overflow: hidden;
   }
 
   .about-card::before,
@@ -418,7 +452,34 @@
   }
 
   .about-card h2 {
-    font-size: clamp(2.3rem, 13vw, 3.4rem);
+    max-width: 100%;
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
+    line-height: 0.88;
+    overflow-wrap: break-word;
+  }
+
+  .about-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .about-note {
+    grid-column: auto;
+  }
+
+  .about-note ul {
+    gap: 0.55rem;
+  }
+
+  .about-note li {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+  }
+
+  .about-timeline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .timeline-label {
@@ -426,10 +487,53 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: -0.25rem;
+    font-size: 0.62rem;
+  }
+
+  .about-timeline article {
+    min-height: auto;
+    transform: none;
   }
 
   .about-timeline h3 {
-    font-size: clamp(2.1rem, 11vw, 2.8rem);
+    max-width: 100%;
+    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    line-height: 0.9;
+    overflow-wrap: break-word;
+  }
+
+  .about-timeline p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 430px) {
+  .about-hero,
+  .about-board,
+  .about-card,
+  .about-note,
+  .about-timeline article {
+    padding: 0.9rem;
+  }
+
+  .about-hero .page-title {
+    font-size: clamp(2.7rem, 15vw, 4rem);
+  }
+
+  .about-card h2 {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .about-timeline h3 {
+    font-size: clamp(2rem, 11vw, 2.9rem);
+  }
+
+  .card-label,
+  .about-note span,
+  .timeline-label {
+    font-size: 0.56rem;
   }
 }
