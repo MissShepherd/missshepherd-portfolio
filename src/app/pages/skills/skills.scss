@@ -447,6 +447,7 @@
   }
 
   .skill-branch {
+    min-width: 0;
     transform: none;
   }
 
@@ -463,7 +464,10 @@
 
   .skill-hero {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
     padding: 1.25rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
   }
 
   .skill-hero .kicker,
@@ -472,11 +476,28 @@
     grid-column: 1;
   }
 
+  .skill-hero .kicker {
+    max-width: 100%;
+    font-size: 0.66rem;
+    overflow-wrap: break-word;
+  }
+
   .skill-hero .page-title {
-    font-size: clamp(3.5rem, 17vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 16vw, 4.8rem);
+    line-height: 0.82;
+    overflow-wrap: break-word;
+  }
+
+  .skill-hero .page-title span {
+    -webkit-text-stroke: 2px var(--ink);
+    text-shadow:
+      2px 2px 0 var(--acid),
+      4px 4px 0 var(--ink);
   }
 
   .skill-hero p:last-child {
+    max-width: 100%;
     font-size: 0.95rem;
     line-height: 1.5;
   }
@@ -484,11 +505,13 @@
   .skill-hero::after {
     right: 0.8rem;
     bottom: -0.85rem;
+    font-size: 0.62rem;
   }
 
   .tree-board {
-    padding: 1.4rem;
+    padding: 1.2rem;
     border-width: 5px;
+    overflow: hidden;
     box-shadow:
       0 0 0 3px #3f2817 inset,
       8px 8px 0 var(--ink);
@@ -503,11 +526,17 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: 1rem;
+    font-size: 0.62rem;
   }
 
   .skill-root {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
     transform: none;
+    overflow: hidden;
   }
 
   .skill-root::before,
@@ -516,11 +545,16 @@
   }
 
   .skill-root h2 {
-    font-size: clamp(2.35rem, 9vw, 3rem);
+    max-width: 100%;
+    font-size: clamp(2.1rem, 11vw, 3rem);
+    line-height: 0.9;
+    overflow-wrap: break-word;
   }
 
   .skill-root p {
+    max-width: 100%;
     font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .tree-trunk {
@@ -532,32 +566,59 @@
     padding-top: 2rem;
   }
 
+  .skill-branch {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
   .skill-branch::before {
     top: -2rem;
     height: 2rem;
   }
 
   .skill-branch h3 {
-    font-size: clamp(2.2rem, 10vw, 2.9rem);
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    line-height: 0.9;
+    overflow-wrap: break-word;
+  }
+
+  .skill-list {
+    gap: 0.65rem;
+  }
+
+  .skill-list li {
+    padding: 0.75rem;
+    overflow: hidden;
+  }
+
+  .skill-list li strong,
+  .skill-list li small {
+    max-width: 100%;
+    overflow-wrap: break-word;
   }
 }
 
 @media (max-width: 430px) {
-  .skill-hero {
-    padding: 1.1rem;
-  }
-
-  .tree-board {
-    padding: 1rem;
-  }
-
+  .skill-hero,
+  .tree-board,
   .skill-root,
   .skill-branch {
-    padding: 1rem;
+    padding: 0.9rem;
+  }
+
+  .skill-hero .page-title {
+    font-size: clamp(2.7rem, 15vw, 4rem);
   }
 
   .skill-root h2 {
-    font-size: clamp(2.1rem, 11vw, 2.7rem);
+    font-size: clamp(2rem, 11vw, 2.7rem);
+  }
+
+  .skill-branch h3 {
+    font-size: clamp(1.9rem, 11vw, 2.7rem);
   }
 
   .skill-list li {
@@ -566,6 +627,11 @@
 
   .skill-list li::before {
     display: none;
+  }
+
+  .node-type,
+  .skill-branch header span {
+    font-size: 0.56rem;
   }
 
   .skill-list li strong {
