@@ -144,6 +144,7 @@
 .contact-card,
 .contact-note {
   position: relative;
+  min-width: 0;
   z-index: 3;
   padding: 1.25rem;
   border: 5px solid var(--border);
@@ -314,6 +315,11 @@
     grid-row: auto;
     transform: none;
   }
+
+  .contact-card,
+  .contact-note {
+    min-width: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -323,7 +329,10 @@
 
   .contact-hero {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
     padding: 1.25rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
   }
 
   .contact-hero .kicker,
@@ -332,11 +341,28 @@
     grid-column: 1;
   }
 
+  .contact-hero .kicker {
+    max-width: 100%;
+    font-size: 0.66rem;
+    overflow-wrap: break-word;
+  }
+
   .contact-hero .page-title {
-    font-size: clamp(3.5rem, 17vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 16vw, 4.8rem);
+    line-height: 0.82;
+    overflow-wrap: break-word;
+  }
+
+  .contact-hero .page-title span {
+    -webkit-text-stroke: 2px var(--ink);
+    text-shadow:
+      2px 2px 0 var(--acid),
+      4px 4px 0 var(--ink);
   }
 
   .contact-hero p:last-child {
+    max-width: 100%;
     font-size: 0.95rem;
     line-height: 1.5;
   }
@@ -344,13 +370,15 @@
   .contact-hero::after {
     right: 0.8rem;
     bottom: -0.85rem;
+    font-size: 0.62rem;
   }
-}
 
-@media (max-width: 620px) {
   .contact-board {
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 1.2rem;
     border-width: 5px;
+    overflow: hidden;
     box-shadow:
       0 0 0 3px #3f2817 inset,
       8px 8px 0 var(--ink);
@@ -365,12 +393,17 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: 0.75rem;
+    font-size: 0.62rem;
   }
 
   .contact-card,
   .contact-note {
+    width: 100%;
+    max-width: 100%;
     padding: 1rem;
+    overflow: hidden;
   }
 
   .contact-card::before,
@@ -379,10 +412,59 @@
   }
 
   .contact-card h2 {
-    font-size: clamp(2.3rem, 13vw, 3.4rem);
+    max-width: 100%;
+    font-size: clamp(2rem, 11vw, 3rem);
+    line-height: 0.95;
+    overflow-wrap: break-word;
+  }
+
+  .contact-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .contact-note {
+    grid-column: auto;
+  }
+
+  .contact-note ul {
+    gap: 0.55rem;
+  }
+
+  .contact-note li {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-wrap: break-word;
   }
 
   .contact-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .contact-hero,
+  .contact-board,
+  .contact-card,
+  .contact-note {
+    padding: 0.9rem;
+  }
+
+  .contact-hero .page-title {
+    font-size: clamp(2.7rem, 15vw, 4rem);
+  }
+
+  .contact-card h2 {
+    font-size: clamp(1.9rem, 11vw, 2.7rem);
+  }
+
+  .card-label,
+  .contact-note span {
+    font-size: 0.56rem;
+  }
+
+  .contact-button {
+    min-height: 2.8rem;
+    font-size: 0.7rem;
   }
 }
