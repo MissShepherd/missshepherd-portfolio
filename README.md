@@ -1,59 +1,195 @@
-# MissshepherdPortfolio
+# MissShepherd Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+> Design // Code // Chaos // Repeat
 
-## Development server
+A creative frontend developer portfolio built with Angular.  
+The project combines structured, accessible web development with a colourful pinboard-inspired grunge aesthetic, handmade details, and just enough organised chaos.
 
-To start a local development server, run:
+## Live Portfolio
+
+[Visit the deployed portfolio](https://missshepherd-projects.vercel.app/)
+
+## About the Project
+
+This portfolio presents my frontend development work, technical skills, creative interests, and current projects.
+
+Rather than using a traditional portfolio template, I designed the site to feel more personal: part developer workspace, part quest board, and part chaotic collection of notes, stickers, doodles, and project ideas.
+
+The interface remains responsive and readable underneath the visual chaos.
+
+## Features
+
+- Responsive Angular portfolio
+- Standalone Angular components
+- Multi-page navigation with Angular Router
+- Custom pinboard and paper-inspired design system
+- Project showcase with featured and upcoming builds
+- Interactive skill tree
+- About and creative work sections
+- Contact page with external links
+- Reusable cards, badges, notes, stickers, and layout components
+- Responsive layouts for desktop, tablet, and mobile
+- Deployed through Vercel
+
+## Current Pages
+
+- **Home** – Introduction and portfolio overview
+- **About** – Developer profile, background, tools, and personal strengths
+- **Projects** – Featured builds, experiments, and works in progress
+- **Skill Tree** – Technical skills and current development focus
+- **Creative** – Creative interests and their influence on my work
+- **Contact** – Contact information and professional links
+
+## Featured Project
+
+### EFZ Bildungsplan App
+
+An Angular frontend for exploring EFZ education plan data through structured navigation, filters, search, and detailed information views.
+
+The project focuses on transforming complex and interconnected educational data into a clear and usable interface.
+
+**Technologies:**
+
+- Angular
+- TypeScript
+- HTML
+- SCSS
+- REST APIs
+- Git
+
+## Tech Stack
+
+### Frontend
+
+- Angular 21
+- TypeScript
+- HTML5
+- CSS / SCSS
+- Angular Router
+- Angular Signals
+
+### Tools
+
+- Git
+- GitHub
+- npm
+- Visual Studio Code
+- Vercel
+- Figma
+
+## Local Development
+
+### Requirements
+
+Make sure the following tools are installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Angular CLI](https://angular.dev/tools/cli)
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+cd missshepherd-portfolio
+```
+
+Replace `<repository-url>` with the URL of this repository.
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Development Server
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200/` in your browser.
 
-## Code scaffolding
+The application automatically reloads when source files are changed.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Available Commands
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Development Server
 
 ```bash
-ng generate --help
+ng serve
 ```
 
-## Building
-
-To build the project run:
+### Production Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The compiled application is created inside the `dist/` directory.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Unit Tests
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+Unit tests are executed with Vitest.
 
-For end-to-end (e2e) testing, run:
+### Generate a Component
 
 ```bash
-ng e2e
+ng generate component component-name
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+A shorter version of the command can also be used:
 
-## Additional Resources
+```bash
+ng g c component-name
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### View Available Angular Schematics
+
+```bash
+ng generate --help
+```
+
+## Deployment
+
+The portfolio is deployed with Vercel.
+
+Create a production build locally with:
+
+```bash
+ng build
+```
+
+Deploy through the Vercel CLI with:
+
+```bash
+npx vercel --prod
+```
+
+## Project Status
+
+The portfolio is actively evolving.
+
+New projects, refinements, accessibility improvements, creative details, and occasional side quests will continue to be added.
+
+```text
+portfolio.log
+├── Angular application ........ running
+├── Projects ................... loading
+├── Personality ................ compiled
+└── Boring template ............ removed
+```
+
+## Author
+
+**MissShepherd**
+
+Frontend developer focused on Angular, TypeScript, structured interfaces, creative problem-solving, and web experiences with personality.
+
+---
+
+Built with Angular, caffeine, playlists, and side quests.
