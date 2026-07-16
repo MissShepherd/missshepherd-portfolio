@@ -338,85 +338,6 @@
   font-weight: 900;
 }
 
-/* Process */
-
-.project-process {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.process-label {
-  position: absolute;
-  top: -1rem;
-  left: 1rem;
-  z-index: 5;
-  margin: 0;
-  box-shadow: 4px 4px 0 var(--pink);
-  transform: rotate(-3deg);
-}
-
-.project-process article {
-  position: relative;
-  min-height: 220px;
-  padding: 1.35rem;
-  border: 5px solid var(--border);
-  background: var(--paper);
-  box-shadow: 8px 8px 0 var(--ink);
-}
-
-.project-process article:nth-of-type(1) {
-  background:
-    radial-gradient(circle at top right, rgba(213, 255, 0, 0.85), transparent 8rem),
-    var(--paper);
-  transform: rotate(-1.2deg);
-}
-
-.project-process article:nth-of-type(2) {
-  background:
-    radial-gradient(circle at bottom left, rgba(255, 0, 122, 0.34), transparent 9rem),
-    var(--paper-2);
-  transform: rotate(1deg);
-}
-
-.project-process article:nth-of-type(3) {
-  background:
-    radial-gradient(circle at top left, rgba(0, 217, 255, 0.5), transparent 9rem),
-    var(--paper);
-  transform: rotate(-0.7deg);
-}
-
-.project-process article span {
-  display: inline-flex;
-  margin-bottom: 0.85rem;
-  padding: 0.35rem 0.55rem;
-  color: var(--acid);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 900;
-  background: var(--ink);
-}
-
-.project-process h3 {
-  margin: 0 0 0.85rem;
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.015em;
-  text-transform: uppercase;
-}
-
-.project-process p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.96rem;
-  font-weight: 700;
-  line-height: 1.58;
-  text-wrap: pretty;
-}
-
 /* Responsive */
 
 @media (max-width: 980px) {
@@ -435,6 +356,12 @@
     grid-row: auto;
     transform: none;
   }
+
+  .project-card,
+  .projects-note,
+  .project-process article {
+    min-width: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -444,7 +371,10 @@
 
   .projects-hero {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
     padding: 1.25rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
   }
 
   .projects-hero .kicker,
@@ -453,11 +383,28 @@
     grid-column: 1;
   }
 
+  .projects-hero .kicker {
+    max-width: 100%;
+    font-size: 0.66rem;
+    overflow-wrap: break-word;
+  }
+
   .projects-hero .page-title {
-    font-size: clamp(3.5rem, 17vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(3rem, 16vw, 4.8rem);
+    line-height: 0.82;
+    overflow-wrap: break-word;
+  }
+
+  .projects-hero .page-title span {
+    -webkit-text-stroke: 2px var(--ink);
+    text-shadow:
+      2px 2px 0 var(--acid),
+      4px 4px 0 var(--ink);
   }
 
   .projects-hero p:last-child {
+    max-width: 100%;
     font-size: 0.95rem;
     line-height: 1.5;
   }
@@ -465,11 +412,15 @@
   .projects-hero::after {
     right: 0.8rem;
     bottom: -0.85rem;
+    font-size: 0.62rem;
   }
 
   .projects-board {
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 1.2rem;
     border-width: 5px;
+    overflow: hidden;
     box-shadow:
       0 0 0 3px #3f2817 inset,
       8px 8px 0 var(--ink);
@@ -484,13 +435,18 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: 0.75rem;
+    font-size: 0.62rem;
   }
 
   .project-card,
   .projects-note,
   .project-process article {
+    width: 100%;
+    max-width: 100%;
     padding: 1rem;
+    overflow: hidden;
   }
 
   .project-card::before,
@@ -499,7 +455,55 @@
   }
 
   .project-card h2 {
-    font-size: clamp(2.3rem, 13vw, 3.4rem);
+    max-width: 100%;
+    font-size: clamp(2.1rem, 11vw, 3.3rem);
+    line-height: 0.88;
+    overflow-wrap: break-word;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .project-meta {
+    gap: 0.55rem;
+  }
+
+  .project-meta dd {
+    font-size: 0.74rem;
+    overflow-wrap: break-word;
+  }
+
+  .project-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .project-button,
+  .project-badge {
+    width: 100%;
+    min-height: 2.8rem;
+  }
+
+  .projects-note {
+    grid-column: auto;
+  }
+
+  .projects-note ul {
+    gap: 0.55rem;
+  }
+
+  .projects-note li {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+  }
+
+  .project-process {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .process-label {
@@ -507,15 +511,58 @@
     top: auto;
     left: auto;
     width: fit-content;
+    max-width: 100%;
     margin-bottom: -0.25rem;
+    font-size: 0.62rem;
+  }
+
+  .project-process article {
+    min-height: auto;
+    transform: none;
   }
 
   .project-process h3 {
-    font-size: clamp(2.1rem, 11vw, 2.8rem);
+    max-width: 100%;
+    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    line-height: 0.9;
+    overflow-wrap: break-word;
+  }
+
+  .project-process p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 430px) {
+  .projects-hero,
+  .projects-board,
+  .project-card,
+  .projects-note,
+  .project-process article {
+    padding: 0.9rem;
+  }
+
+  .projects-hero .page-title {
+    font-size: clamp(2.7rem, 15vw, 4rem);
+  }
+
+  .project-card h2 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .project-process h3 {
+    font-size: clamp(2rem, 11vw, 2.9rem);
+  }
+
+  .card-label,
+  .projects-note span,
+  .process-label {
+    font-size: 0.56rem;
   }
 
   .project-button,
   .project-badge {
-    width: 100%;
+    font-size: 0.68rem;
   }
 }

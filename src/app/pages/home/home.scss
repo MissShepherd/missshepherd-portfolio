@@ -938,7 +938,7 @@
   line-height: 1.65;
 }
 
-//* Responsive */
+/* Responsive */
 
 @media (max-width: 1180px) {
   .kobold-hero {
@@ -969,8 +969,7 @@
     z-index: 40;
     width: min(100%, 720px);
     justify-self: center;
-    order: unset;
-    transform: rotate(-1deg);
+    transform: none;
   }
 
   .board-note,
@@ -1008,50 +1007,6 @@
     --mobile-rot: -2deg;
   }
 
-  .note-colour {
-    --mobile-rot: 1deg;
-  }
-
-  .clipping-map {
-    --mobile-rot: -2deg;
-  }
-
-  .clipping-ticket {
-    --mobile-rot: 2deg;
-  }
-
-  .sticker-build {
-    --mobile-rot: -2deg;
-  }
-
-  .sticker-stack {
-    --mobile-rot: 2deg;
-  }
-
-  .sticker-side {
-    --mobile-rot: -1deg;
-  }
-
-  .sticker-bug {
-    --mobile-rot: 2deg;
-  }
-
-  .note-inspo {
-    --mobile-rot: -2deg;
-  }
-
-  .note-usability {
-    --mobile-rot: 1deg;
-  }
-
-  .clipping-list {
-    --mobile-rot: -1deg;
-  }
-
-  .note-quest {
-    --mobile-rot: 2deg;
-  }
-
   .terminal-fragment {
     grid-column: 1 / -1;
     width: min(100%, 30rem);
@@ -1076,6 +1031,19 @@
   .splat-three {
     display: none;
   }
+
+  .grunge-manifesto {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .dev-zine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dev-zine-grid article {
+    transform: none;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1096,7 +1064,6 @@
 
   .hero-card {
     padding: 1.15rem;
-    transform: none;
   }
 
   .hero-card::before,
@@ -1154,6 +1121,64 @@
   .board-noise {
     display: none;
   }
+
+  .grunge-manifesto {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.6rem;
+    padding: 1.2rem;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .manifesto-stamp {
+    width: fit-content;
+    max-width: 100%;
+    font-size: 0.78rem;
+    transform: rotate(-4deg);
+  }
+
+  .grunge-manifesto h2 {
+    max-width: 100%;
+    margin-bottom: 1.2rem;
+    font-size: clamp(2.4rem, 14vw, 4rem);
+    line-height: 0.82;
+    overflow-wrap: break-word;
+  }
+
+  .title-second {
+    margin-top: 0.75rem;
+    transform: none;
+  }
+
+  .grunge-manifesto p {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .dev-zine-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.4rem;
+  }
+
+  .dev-zine-grid article {
+    min-height: auto;
+    padding: 1rem;
+    transform: none;
+  }
+
+  .dev-zine-grid h3 {
+    font-size: clamp(2.4rem, 14vw, 3.8rem);
+    line-height: 0.88;
+    overflow-wrap: break-word;
+  }
+
+  .dev-zine-grid p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1170,5 +1195,14 @@
   .board-clipping,
   .dev-sticker {
     padding: 0.75rem;
+  }
+
+  .grunge-manifesto {
+    padding: 1rem;
+  }
+
+  .grunge-manifesto h2,
+  .dev-zine-grid h3 {
+    font-size: clamp(2.2rem, 13vw, 3.4rem);
   }
 }

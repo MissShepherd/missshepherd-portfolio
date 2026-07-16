@@ -3,6 +3,7 @@
   width: min(900px, calc(100% - 2rem));
   margin: 2rem auto 2.5rem;
   padding: 1.15rem 1.5rem;
+  overflow: hidden;
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -72,13 +73,41 @@
 
 @media (max-width: 620px) {
   .site-footer {
-    width: min(100% - 1rem, 900px);
-    padding: 1rem;
-    font-size: 0.75rem;
+    width: min(900px, calc(100% - 1rem));
+    margin: 1.5rem auto 2rem;
+    padding: 0.95rem;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    box-shadow: 5px 5px 0 var(--ink);
     transform: none;
   }
 
+  .site-footer::before {
+    inset: 0.35rem;
+  }
+
+  .site-footer p {
+    overflow-wrap: break-word;
+  }
+
   .site-footer small {
-    font-size: 0.95rem;
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    transform: none;
+  }
+
+  .footer-tape {
+    width: 3.5rem;
+    height: 0.9rem;
+  }
+
+  .tape-one {
+    left: 1rem;
+  }
+
+  .tape-two {
+    right: 1rem;
   }
 }
